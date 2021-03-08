@@ -30,6 +30,7 @@ public class SuperMarket extends State {
 		cashRegLimit = regLimit;
 		customerLimit = CLimit;
 
+		openForBis = true;
 		availableCashReg = regLimit;
 		lostCustomer = 0;
 		inStore = 0;
@@ -95,5 +96,12 @@ public class SuperMarket extends State {
 	public int getAvailableCashReg() {
 		return cashRegLimit - availableCashReg;
 	}
-
+	
+	public void closeStore() {
+		openForBis = false;
+	}
+	
+	public boolean getOpenForBis() {
+		return openForBis;
+	}
 }
