@@ -19,6 +19,8 @@ public class SuperMarket extends State {
 
 	final int cashRegLimit;
 	final int customerLimit;
+	
+	public TimeState ts;
 
 	/**
 	 * Starts the SuperMarket
