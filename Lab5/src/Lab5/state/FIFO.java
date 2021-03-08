@@ -15,7 +15,6 @@ import Lab5.simulation.Event;
 import Lab5.state.*;
 import Lab5.event.*;
 
-
 import java.util.NoSuchElementException;
 
 public class FIFO {
@@ -26,7 +25,7 @@ public class FIFO {
 	}
 
 	public void queueFIFO() {
-		
+
 	}
 
 	public void removeFirst() {
@@ -38,11 +37,11 @@ public class FIFO {
 	}
 
 	public boolean isEmpty() {
-	if(cashQueue.size() == 0) {
-		return true;
-	} else {
-		return false;
+		if (cashQueue.size() == 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
-}
 
 }

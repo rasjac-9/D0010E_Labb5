@@ -12,6 +12,7 @@ package Lab5.state;
 import Lab5.rand.*;
 
 public class TimeState {
+	
 	private UniformRandomStream ranStreamShop;
 	private ExponentialRandomStream expStream;
 	private UniformRandomStream ranStreamPick;
@@ -21,6 +22,7 @@ public class TimeState {
 	private int closingTime;
 	private int currentTime;
 	SuperMarket sm;
+
 	public TimeState(SuperMarket s) {
 		sm = s;
 		ranStreamShop = new UniformRandomStream(s.kmin, s.kmax, s.seed);
