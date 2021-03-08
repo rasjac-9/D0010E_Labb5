@@ -15,7 +15,8 @@ import Lab5.simulation.State;
 public class SuperMarket extends State {
 
 	boolean openForBis;
-	int occupiedCashReg, lostCustomer, inStore;
+	int occupiedCashReg, lostCustomer, inStore, lambda, seed;
+	double kmax, kmin, pmin, pmax;
 
 	final int cashRegLimit;
 	final int customerLimit;
@@ -29,7 +30,13 @@ public class SuperMarket extends State {
 	 * @param regLimit - the limit on how many cashRegisters that exists
 	 * @param CLimit   - the limit on how many customers aloud in store
 	 */
-	public SuperMarket(int seed, int regLimit, int CLimit) {
+	public SuperMarket(int seed, int regLimit, int CLimit, int lambda, int pmin, int pmax, int kmin, int kmax) {
+		this.kmax = kmax;
+		this.kmin = kmin;
+		this.pmin = pmin;
+		this.pmax = pmax;
+		this.lambda = lambda;
+		this.seed = seed;
 		cashRegLimit = regLimit;
 		customerLimit = CLimit;
 
@@ -38,8 +45,7 @@ public class SuperMarket extends State {
 		lostCustomer = 0;
 		inStore = 0;
 
-		ts = new TimeState(seed);
-		// TODO: parhaps create a view ??
+		ts = new TimeState(this);
 	}
 
 	/**
@@ -72,7 +78,7 @@ public class SuperMarket extends State {
 	}
 
 	/**
-	 * Decrease occupiedCashReg
+	 * Adds to occupiedCashReg
 	 */
 	public void addToCashReg() throws ArithmeticException {
 		if (occupiedCashReg == cashRegLimit) {
@@ -83,7 +89,7 @@ public class SuperMarket extends State {
 	}
 
 	/**
-	 * Adds to occupiedCashReg
+	 * Decrease occupiedCashReg
 	 * 
 	 * @throws ArithmeticException - if cashRegLimit is reached
 	 */
@@ -93,17 +99,17 @@ public class SuperMarket extends State {
 		}
 	}
 
-	/** 
+	/**
 	 * @return the amount of occupiedCashReg
 	 */
 	public int getAvailableCashReg() {
 		return cashRegLimit - occupiedCashReg;
 	}
-	
+
 	public void closeStore() {
 		openForBis = false;
 	}
-	
+
 	public boolean getOpenForBis() {
 		return openForBis;
 	}
