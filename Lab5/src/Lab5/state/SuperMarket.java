@@ -1,7 +1,7 @@
 
 package Lab5.state;
 
-public class SuperMarket {
+public class SuperMarket extends State{
 
 	boolean openForBis;
 	int cashReg, lostCustomer, inStore;
