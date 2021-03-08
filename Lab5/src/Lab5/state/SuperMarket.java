@@ -19,25 +19,30 @@ public class SuperMarket extends State {
 
 	final int cashRegLimit;
 	final int customerLimit;
+	int kmax,kmin,pmin,pmax,lambda,seed;
 	
-	public TimeState ts;
-
 	/**
 	 * Starts the SuperMarket
 	 * 
 	 * @param regLimit - the limit on how many cashRegisters that exists
 	 * @param CLimit   - the limit on how many customers aloud in store
 	 */
-	public SuperMarket(int seed, int regLimit, int CLimit) {
+	public SuperMarket(int seed, int regLimit, int CLimit,int lambda, int pmin,int pmax,int kmin,int kmax) {
+		this.kmax = kmax;
+		this.kmin = kmin;
+		this.pmin = pmin;
+		this.pmax = pmax;
+		this.lambda = lambda;
+		this.seed = seed;
 		cashRegLimit = regLimit;
 		customerLimit = CLimit;
-
+		
 		openForBis = true;
 		availableCashReg = regLimit;
 		lostCustomer = 0;
 		inStore = 0;
 
-		TimeState time = new TimeState(seed);
+		TimeState time = new TimeState(this);
 		// TODO: parhaps create a view ??
 	}
 
