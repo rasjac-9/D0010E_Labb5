@@ -1,6 +1,5 @@
 package Lab5.event;
 
-import State.Customer;
 import State.State
 
 /**
