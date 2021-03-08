@@ -23,7 +23,7 @@ public class ClosingEvent extends Event {
 
   public void doMe() {
     state.update(this);
-    state.getSuperMarket().setIsOpen(false);
+    state.getSuperMarket().closeStore();
    }
 
    public double getTime() {
