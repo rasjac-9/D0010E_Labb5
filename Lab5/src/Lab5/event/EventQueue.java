@@ -3,8 +3,17 @@ package Lab5.event;
 import Lab5.simulation.Event;
 import java.util.ArrayList;
 
+/**
+ * Queues all event
+ * 
+ * @author Alex Bergdahl, 
+ * @author Kim Eriksson, 
+ * @author Peggy Khialie, 
+ * @author Rasmus Jacobsen
+ *
+ */
 public class EventQueue {
-    private static ArrayList<Event> eventList = new ArrayList<>();
+    private ArrayList<Event> eventList = new ArrayList<>();
 
     public void addEvent(Event event) {
         eventList.add(event);
