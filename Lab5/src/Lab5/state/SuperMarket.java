@@ -19,8 +19,8 @@ public class SuperMarket extends State {
 
 	final int cashRegLimit;
 	final int customerLimit;
-	int kmax,kmin,pmin,pmax,lambda,seed;
-	
+	int lambda,seed;
+	double kmax,kmin,pmin,pmax;
 	/**
 	 * Starts the SuperMarket
 	 * 
@@ -42,8 +42,8 @@ public class SuperMarket extends State {
 		lostCustomer = 0;
 		inStore = 0;
 
-		TimeState time = new TimeState(this);
 
+		TimeState time = new TimeState(this);
 	}
 
 	/**
