@@ -43,7 +43,7 @@ public class SuperMarket extends State {
 		inStore = 0;
 
 		TimeState time = new TimeState(this);
-		// TODO: parhaps create a view ??
+
 	}
 
 	/**
