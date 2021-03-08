@@ -20,7 +20,10 @@ public class SuperMarket extends State {
 
 	final int cashRegLimit;
 	final int customerLimit;
-
+	
+	public TimeState ts;
+	public FIFO cashQueue;
+	
 	/**
 	 * Starts the SuperMarket
 	 * 
@@ -42,7 +45,7 @@ public class SuperMarket extends State {
 		lostCustomer = 0;
 		inStore = 0;
 
-		TimeState time = new TimeState(this);
+		ts = new TimeState(this);
 	}
 
 	/**
