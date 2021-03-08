@@ -11,15 +11,15 @@ package Lab5.state;
 
 import java.util.ArrayList;
 
-import Lab5.simulation.*;
+import Lab5.simulation.Event;
 import Lab5.state.*;
-import jdk.jfr.Event;
+import Lab5.event.*;
 
 
 import java.util.NoSuchElementException;
 
 public class FIFO {
-	private ArrayList<Lab5.simulation.Event> cashQueue = new ArrayList<Lab5.simulation.Event>();
+	private ArrayList<Event> cashQueue = new ArrayList<Event>();
 
 	public void addToFIFO(Event e) {
 
