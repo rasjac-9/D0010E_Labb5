@@ -15,35 +15,31 @@ import Lab5.simulation.State;
 public class SuperMarket extends State {
 
 	boolean openForBis;
-	int availableCashReg, lostCustomer, inStore;
+	int occupiedCashReg, lostCustomer, inStore;
 
 	final int cashRegLimit;
 	final int customerLimit;
-	int lambda,seed;
-	double kmax,kmin,pmin,pmax;
+	
+	public TimeState ts;
+	public FIFO cashQueue;
+	
 	/**
 	 * Starts the SuperMarket
 	 * 
 	 * @param regLimit - the limit on how many cashRegisters that exists
 	 * @param CLimit   - the limit on how many customers aloud in store
 	 */
-	public SuperMarket(int seed, int regLimit, int CLimit,int lambda, int pmin,int pmax,int kmin,int kmax) {
-		this.kmax = kmax;
-		this.kmin = kmin;
-		this.pmin = pmin;
-		this.pmax = pmax;
-		this.lambda = lambda;
-		this.seed = seed;
+	public SuperMarket(int seed, int regLimit, int CLimit) {
 		cashRegLimit = regLimit;
 		customerLimit = CLimit;
-		
+
 		openForBis = true;
-		availableCashReg = regLimit;
+		occupiedCashReg = 0;
 		lostCustomer = 0;
 		inStore = 0;
 
-
-		TimeState time = new TimeState(this);
+		ts = new TimeState(seed);
+		// TODO: parhaps create a view ??
 	}
 
 	/**
@@ -76,32 +72,32 @@ public class SuperMarket extends State {
 	}
 
 	/**
-	 * Decrease availableCashReg
+	 * Decrease occupiedCashReg
 	 */
-	public void addToCashReg() {
-		if (availableCashReg != 0) {
-			availableCashReg -= 1;
+	public void addToCashReg() throws ArithmeticException {
+		if (occupiedCashReg == cashRegLimit) {
+			throw new ArithmeticException();
+		} else {
+			occupiedCashReg += 1;
 		}
 	}
 
 	/**
-	 * Adds to availableCashReg
+	 * Adds to occupiedCashReg
 	 * 
 	 * @throws ArithmeticException - if cashRegLimit is reached
 	 */
-	public void freeCashReg() throws ArithmeticException {
-		if (availableCashReg == cashRegLimit) {
-			throw new ArithmeticException();
-		} else {
-			availableCashReg += 1;
+	public void freeCashReg() {
+		if (occupiedCashReg != 0) {
+			occupiedCashReg -= 1;
 		}
 	}
 
-	/**
-	 * @return the amount of availableCashReg
+	/** 
+	 * @return the amount of occupiedCashReg
 	 */
 	public int getAvailableCashReg() {
-		return cashRegLimit - availableCashReg;
+		return cashRegLimit - occupiedCashReg;
 	}
 	
 	public void closeStore() {
