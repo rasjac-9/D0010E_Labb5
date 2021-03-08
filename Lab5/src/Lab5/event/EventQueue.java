@@ -27,6 +27,13 @@ public class EventQueue {
 
         if(eventList.size() > 1) {  //  needs to hold more than 2 objects to sort
 
+            /*e.g. arraylist [5,3,8,6]
+            first loop:
+            if (5 > 3) {swap place, [3,5,8,6]}
+            if (5 > 8)
+            if (5 > 6)
+            second loop:
+            if (8 > 6) {swap place [3,5,6,8]}*/
             for(int i = 1; i < eventList.size(); i++) {
                 for(int j = 0; j < eventList.size(); j++) {
 
