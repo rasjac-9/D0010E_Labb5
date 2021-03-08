@@ -1,10 +1,12 @@
 
 package Lab5.state;
 
-public class SuperMarket extends State{
+import Lab5.simulation.State;
+
+public class SuperMarket extends State {
 
 	boolean openForBis;
-	int cashReg, lostCustomer, inStore;
+	int availableCashReg, lostCustomer, inStore;
 
 	final int cashRegLimit;
 	final int customerLimit;
@@ -13,7 +15,7 @@ public class SuperMarket extends State{
 		cashRegLimit = regLimit;
 		customerLimit = CLimit;
 
-		cashReg = regLimit;
+		availableCashReg = regLimit;
 		lostCustomer = 0;
 		inStore = 0;
 
@@ -21,8 +23,10 @@ public class SuperMarket extends State{
 		// TODO: parhaps create a view ??
 	}
 
-	public void addCustomer() {
-		if (inStore != customerLimit) {
+	public void addCustomer() throws ArithmeticException {
+		if (inStore == customerLimit) {
+			throw new ArithmeticException();
+		} else {
 			inStore += 1;
 		}
 	}
@@ -38,19 +42,21 @@ public class SuperMarket extends State{
 	}
 
 	public void addToCashReg() {
-		if (cashReg != 0) {
-			cashReg -= 1;
+		if (availableCashReg != 0) {
+			availableCashReg -= 1;
 		}
 	}
 
-	public void freeCashReg() {
-		if (cashReg != cashRegLimit) {
-			cashReg -= 1;
+	public void freeCashReg() throws ArithmeticException {
+		if (availableCashReg == cashRegLimit) {
+			throw new ArithmeticException();
+		} else {
+			availableCashReg += 1;
 		}
 	}
 
 	public int getAvailableCashReg() {
-		return cashRegLimit - cashReg;
+		return cashRegLimit - availableCashReg;
 	}
 
 }
