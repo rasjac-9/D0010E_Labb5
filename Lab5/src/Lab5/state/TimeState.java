@@ -8,6 +8,7 @@
  *
  */
 package Lab5.state;
+
 import Lab5.rand.*;
 
 public class TimeState {
@@ -19,25 +20,31 @@ public class TimeState {
 	public int queueTime;
 	private int closingTime;
 	private int currentTime;
-	
+	SuperMarket sm;
 	public TimeState(SuperMarket s) {
-		ranStreamShop = new UniformRandomStream(s.kmin,s.kmax,s.seed);
-		ranStreamPick = new UniformRandomStream(s.pmin,s.pmax,s.seed);
-		expStream = new ExponentialRandomStream(s.lambda,s.seed);
+		sm = s;
+		ranStreamShop = new UniformRandomStream(s.kmin, s.kmax, s.seed);
+		ranStreamPick = new UniformRandomStream(s.pmin, s.pmax, s.seed);
+		expStream = new ExponentialRandomStream(s.lambda, s.seed);
 	}
-	private int callClosingEvent() {
-		return closingTime;
+
+	private void callClosingEvent() {
+		sm.closeStore();
 	}
+
 	public double getArrivalTime() {
-		return expStream.next();
+		return currentTime + expStream.next();
 	}
+
 	public double getPayTime() {
-		return ranStreamShop.next();
+		return currentTime + ranStreamShop.next();
 	}
+
 	public double getPickTime() {
-		return ranStreamPick.next();
-}
+		return currentTime + ranStreamPick.next();
+	}
+
 	public void togetRegTime() {
-		
+
 	}
 }

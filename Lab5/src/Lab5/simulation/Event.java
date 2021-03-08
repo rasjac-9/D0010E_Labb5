@@ -12,7 +12,7 @@ package Lab5.simulation;
  */
 public class Event {
 	
-	public int time;
+	public double time;
 	public int customerID;
 	public State s;
 	
