@@ -1,10 +1,17 @@
 package Lab5.simulation;
 
 public class Event {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	int time;
+	int customerID;
+	
+	public Event(){
 	}
-
+	
+	public void effect() {
+		
+	}
+	
+	public void addToEvent() {
+		
+	}
 }
