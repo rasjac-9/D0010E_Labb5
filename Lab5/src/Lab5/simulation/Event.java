@@ -1,8 +1,8 @@
 package Lab5.simulation;
 
 public class Event {
-	int time;
-	int customerID;
+	public int time;
+	public int customerID;
 	
 	public Event(){
 	}
