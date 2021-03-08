@@ -41,7 +41,7 @@ public class SuperMarket extends State {
 		customerLimit = CLimit;
 
 		openForBis = true;
-		occupiedCashReg = regLimit;
+		occupiedCashReg = 0;
 		lostCustomer = 0;
 		inStore = 0;
 
