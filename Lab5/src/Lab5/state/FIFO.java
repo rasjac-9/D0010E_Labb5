@@ -47,7 +47,24 @@ public class FIFO {
 	}
 	
 	public Event getFirst() {
-		return cashQueue.get(0);
+		if (cashQueue.size() > 0) {
+			return cashQueue.get(0);
+		} else {
+			throw new NoSuchElementException();
+		}
+			
 	}
 
+	public String toString() {
+		String print = "[";
+		for (int i = 0; i < cashQueue.size(); i++) {
+			if (print.length() == 1) {
+				print += String.valueOf(cashQueue.get(i).customerID);
+			} else {
+				print += "," + String.valueOf(cashQueue.get(i).customerID);
+			}
+		}
+		print += "]";
+		return print;
+	}
 }
