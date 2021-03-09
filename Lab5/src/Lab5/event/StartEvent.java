@@ -24,7 +24,7 @@ public class StartEvent extends Event{
 		EventQueue = eq;
 		
 		// EventQue variable not added to superMarket yet
-		EventQueue.addEvent(new ArrivalEvent(0, superMarket));
+		EventQueue.addEvent(new ArrivalEvent(0, superMarket, EventQueue));
 
 		// view in StartEvent (?)
 		view = new View();

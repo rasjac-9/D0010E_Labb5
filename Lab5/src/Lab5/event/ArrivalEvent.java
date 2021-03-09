@@ -23,24 +23,23 @@ public class ArrivalEvent extends Event {
 	 * @param ID - customer id
 	 * @param s  - the supermarket
 	 */
-	public ArrivalEvent(int ID, State s) {
+	public ArrivalEvent(int ID, State s, EventQueue eq) {
 		customerID = ID;
+		EventQueue = eq;
 		time = ((SuperMarket) s).ts.getArrivalTime();
 
 		effect();
 	}
 
-	@SuppressWarnings("unused")
 	public void effect() {
 		try {
 			((SuperMarket) s).addCustomer();
-
-			PickEvent pick = new PickEvent(customerID, (SuperMarket) s);
-			ArrivalEvent arrival = new ArrivalEvent(customerID + 1, (SuperMarket) s);
+			EventQueue.addEvent(new PickEvent(customerID, (SuperMarket) s, EventQueue));
+			EventQueue.addEvent(new ArrivalEvent(customerID + 1, (SuperMarket) s, EventQueue));
 
 		} catch (ArithmeticException e) {
 			((SuperMarket) s).lostCustomer();
-			ArrivalEvent arrival = new ArrivalEvent(customerID, (SuperMarket) s);
+			EventQueue.addEvent(new ArrivalEvent(customerID, (SuperMarket) s, EventQueue));
 		}
 
 	}
