@@ -10,13 +10,14 @@
 
 package Lab5.state;
 
+import Lab5.RunConfig;
 import Lab5.simulation.State;
 
 public class SuperMarket extends State {
 
     boolean openForBis;
-    int occupiedCashReg, lostCustomer, inStore, lambda, seed, shopped;
-    double kmax, kmin, pmin, pmax;
+    int occupiedCashReg, lostCustomer, inStore, seed, shopped;
+    double lambda, kmax, kmin, pmin, pmax;
 
     final int cashRegLimit;
     final int customerLimit;
@@ -30,15 +31,15 @@ public class SuperMarket extends State {
      * @param regLimit - the limit on how many cashRegisters that exists
      * @param CLimit   - the limit on how many customers aloud in store
      */
-    public SuperMarket(int seed, int regLimit, int CLimit, int lambda, int pmin, int pmax, int kmin, int kmax) {
-        this.kmax = kmax;
-        this.kmin = kmin;
-        this.pmin = pmin;
-        this.pmax = pmax;
-        this.lambda = lambda;
-        this.seed = seed;
-        cashRegLimit = regLimit;
-        customerLimit = CLimit;
+    public SuperMarket(RunConfig rc) {
+        this.kmax = rc.kMax;
+        this.kmin = rc.kMin;
+        this.pmin = rc.pMin;
+        this.pmax = rc.pMax;
+        this.lambda = rc.lambda;
+        this.seed = rc.seed;
+        cashRegLimit = rc.regLimit;
+        customerLimit = rc.CLimit;
 
         openForBis = true;
         occupiedCashReg = 0;

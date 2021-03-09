@@ -1,12 +1,4 @@
-/**
- * Description
- * 
- * @author Alex Bergdahl, 
- * @author Kim Eriksson, 
- * @author Peggy Khialie, 
- * @author Rasmus Jacobsen
- *
- */
+
 package Lab5.state;
 
 import java.util.ArrayList;
@@ -18,6 +10,15 @@ import Lab5.event.*;
 
 import java.util.NoSuchElementException;
 
+/**
+ * The queue to the cash registers 
+ * 
+ * @author Alex Bergdahl, 
+ * @author Kim Eriksson, 
+ * @author Peggy Khialie, 
+ * @author Rasmus Jacobsen
+ *
+ */
 public class FIFO {
 	private ArrayList<Event> cashQueue = new ArrayList<Event>();
 

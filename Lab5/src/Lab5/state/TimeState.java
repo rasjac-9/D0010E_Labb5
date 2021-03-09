@@ -1,5 +1,6 @@
+
 /**
- * Description
+ * Gives time to event and keep track of time
  * 
  * @author Alex Bergdahl, 
  * @author Kim Eriksson, 
@@ -10,17 +11,22 @@
 package Lab5.state;
 
 import Lab5.rand.*;
+import Lab5.event.*;
 
 public class TimeState {
 	
 	private UniformRandomStream ranStreamShop;
 	private ExponentialRandomStream expStream;
 	private UniformRandomStream ranStreamPick;
-	protected int shopTime;
-	public int regTime;
-	public int queueTime;
-	private int closingTime;
-	private int currentTime;
+	
+	protected double shopTime;
+	
+	public double regTime;
+	public double queueTime;
+	public double currentTime;
+	
+	private double closingTime;
+	
 	SuperMarket sm;
 
 	public TimeState(SuperMarket s) {
@@ -28,10 +34,12 @@ public class TimeState {
 		ranStreamShop = new UniformRandomStream(s.kmin, s.kmax, s.seed);
 		ranStreamPick = new UniformRandomStream(s.pmin, s.pmax, s.seed);
 		expStream = new ExponentialRandomStream(s.lambda, s.seed);
+		
+		callClosingEvent();
 	}
 
 	private void callClosingEvent() {
-		sm.closeStore();
+		ClosingEvent ce = new ClosingEvent(sm, closingTime);
 	}
 
 	public double getArrivalTime() {
@@ -48,5 +56,9 @@ public class TimeState {
 
 	public void togetRegTime() {
 
+	}
+	
+	public void updateTime() {
+		
 	}
 }

@@ -25,10 +25,13 @@ public class PayEvent extends Event {
 	public void effect() {
 		((SuperMarket) s).customerLeft();
 
-		// TODO: FIFOvar needs change
 		if (!((SuperMarket) s).cashQueue.isEmpty()) {
 			((SuperMarket) s).cashQueue.getFirst().effect();
 			((SuperMarket) s).cashQueue.removeFirst();
 		}
+	}
+	
+	public int getCustomer() {
+		return customerID;
 	}
 }

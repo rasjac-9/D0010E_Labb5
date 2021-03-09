@@ -16,8 +16,9 @@ import Lab5.state.SuperMarket;
  */
 public class PickEvent extends Event {
 
-	public PickEvent(int ID, State sm) {
+	public PickEvent(int ID, State sm, EventQueue eq) {
 		customerID = ID;
+		EventQueue = eq;
 		s = sm;
 		time = ((SuperMarket) s).ts.getPickTime();
 
@@ -27,9 +28,13 @@ public class PickEvent extends Event {
 	public void effect() {
 		try{
 			((SuperMarket) s).addToCashReg();
-			PayEvent pay = new PayEvent(customerID, (SuperMarket) s);			
+			EventQueue.addEvent(new PayEvent(customerID, (SuperMarket) s));			
 		} catch (ArithmeticException e) {
 			((SuperMarket) s).cashQueue.addToFIFO(this);
 		}
+	}
+	
+	public int getCustomer() {
+		return customerID;
 	}
 }
