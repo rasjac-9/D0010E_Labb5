@@ -33,4 +33,8 @@ public class PickEvent extends Event {
 			((SuperMarket) s).cashQueue.addToFIFO(this);
 		}
 	}
+	
+	public int getCustomer() {
+		return customerID;
+	}
 }

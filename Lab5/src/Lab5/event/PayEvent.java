@@ -30,4 +30,8 @@ public class PayEvent extends Event {
 			((SuperMarket) s).cashQueue.removeFirst();
 		}
 	}
+	
+	public int getCustomer() {
+		return customerID;
+	}
 }
