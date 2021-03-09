@@ -11,11 +11,11 @@ import Lab5.event.*;
 import java.util.NoSuchElementException;
 
 /**
- * The queue to the cash registers 
+ * The queue to the cash registers
  * 
- * @author Alex Bergdahl, 
- * @author Kim Eriksson, 
- * @author Peggy Khialie, 
+ * @author Alex Bergdahl,
+ * @author Kim Eriksson,
+ * @author Peggy Khialie,
  * @author Rasmus Jacobsen
  *
  */
@@ -45,14 +45,14 @@ public class FIFO {
 			return false;
 		}
 	}
-	
+
 	public Event getFirst() {
 		if (cashQueue.size() > 0) {
 			return cashQueue.get(0);
 		} else {
 			throw new NoSuchElementException();
 		}
-			
+
 	}
 
 	public String toString() {
