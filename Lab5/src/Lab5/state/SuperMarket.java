@@ -68,7 +68,7 @@ public class SuperMarket extends State {
         if (inStore != 0) {
             inStore -= 1;
             shopped += 1;
-            occupiedCashReg -= 1;
+            freeCashReg();
         }
     }
 
