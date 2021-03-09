@@ -1,9 +1,10 @@
 
 package Lab5;
 
+import Lab5.simulation.State;
 import Lab5.simulation.Event;
-import Lab5.event.EventQueue;
-import Lab5.event.StartEvent;
+import Lab5.event.*;
+import Lab5.state.*;
 
 /**
  * Runs a simulation
@@ -15,8 +16,28 @@ import Lab5.event.StartEvent;
  *
  */
 public class Simulation {
-	public EventQueue eq = new EventQueue();
-	public RunConfig rc = new RunConfig();
-	
-	public Event start = new StartEvent(eq, rc);
+
+	public EventQueue eq;
+	public RunConfig rc;
+	public Event start;
+	public State s;
+
+	public Simulation() {
+		eq = new EventQueue();
+		rc = new RunConfig();
+
+		start = new StartEvent(eq, rc);
+		s = (SuperMarket) start.s;
+		
+		while(!start.s.stop) {
+			
+			if(eq.getEvent().time == ((SuperMarket) s).ts.currentTime) {
+				eq.getEvent().effect();
+				eq.removeEvent();
+				
+			}
+			
+			((SuperMarket) s).ts.updateTime();
+		}
+	}
 }

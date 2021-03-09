@@ -18,6 +18,7 @@ public class EventQueue {
 
 	public void addEvent(Event event) {
 		eventList.add(event);
+		sortEvent();
 	}
 
 	public Event getEvent() {
@@ -45,5 +46,10 @@ public class EventQueue {
 				}
 			}
 		}
+	}
+	
+	public void removeEvent() {
+		eventList.remove(0);
+		sortEvent();
 	}
 }

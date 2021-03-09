@@ -23,9 +23,9 @@ public class TimeState {
 	
 	public double regTime;
 	public double queueTime;
+	public double currentTime;
 	
 	private double closingTime;
-	private double currentTime;
 	
 	SuperMarket sm;
 
@@ -56,5 +56,9 @@ public class TimeState {
 
 	public void togetRegTime() {
 
+	}
+	
+	public void updateTime() {
+		
 	}
 }
