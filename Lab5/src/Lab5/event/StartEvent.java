@@ -1,6 +1,7 @@
 
 package Lab5.event;
 
+import Lab5.RunConfig;
 import Lab5.simulation.View;
 import Lab5.simulation.Event;
 import Lab5.state.SuperMarket;
@@ -18,8 +19,8 @@ public class StartEvent extends Event{
 	SuperMarket superMarket;
 	View view;
 
-	StartEvent(EventQueue eq, int seed, int regLimit, int CLimit, int lambda, int pmin, int pmax, int kmin, int kmax) {
-		superMarket = new SuperMarket(seed, regLimit, CLimit, lambda, pmin, pmax, kmin, kmax);
+	public StartEvent(EventQueue eq, RunConfig rc) {
+		superMarket = new SuperMarket(rc);
 		EventQueue = eq;
 		
 		// EventQue variable not added to superMarket yet
