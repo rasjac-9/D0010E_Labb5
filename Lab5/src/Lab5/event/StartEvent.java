@@ -16,15 +16,14 @@ import Lab5.state.SuperMarket;
  *
  */
 public class StartEvent extends Event{
-	SuperMarket superMarket;
+	
 	View view;
 
 	public StartEvent(EventQueue eq, RunConfig rc) {
-		superMarket = new SuperMarket(rc);
+		s = new SuperMarket(rc);
 		EventQueue = eq;
 		
-		// EventQue variable not added to superMarket yet
-		EventQueue.addEvent(new ArrivalEvent(0, superMarket, EventQueue));
+		EventQueue.addEvent(new ArrivalEvent(0, (SuperMarket) s, EventQueue));
 
 		// view in StartEvent (?)
 		view = new View();
