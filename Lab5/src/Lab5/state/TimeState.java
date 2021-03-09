@@ -57,4 +57,8 @@ public class TimeState {
 	public void togetRegTime() {
 
 	}
+	
+	public void updateTime() {
+		
+	}
 }

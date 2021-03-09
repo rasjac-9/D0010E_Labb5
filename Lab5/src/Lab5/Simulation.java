@@ -1,6 +1,7 @@
 
 package Lab5;
 
+import Lab5.simulation.State;
 import Lab5.simulation.Event;
 import Lab5.event.EventQueue;
 import Lab5.event.StartEvent;
@@ -15,8 +16,19 @@ import Lab5.event.StartEvent;
  *
  */
 public class Simulation {
-	public EventQueue eq = new EventQueue();
-	public RunConfig rc = new RunConfig();
-	
-	public Event start = new StartEvent(eq, rc);
+
+	public EventQueue eq;
+	public RunConfig rc;
+	public Event start;
+
+	public Simulation() {
+		eq = new EventQueue();
+		rc = new RunConfig();
+
+		start = new StartEvent(eq, rc);
+		
+		while(!start.s.stop) {
+			
+		}
+	}
 }
