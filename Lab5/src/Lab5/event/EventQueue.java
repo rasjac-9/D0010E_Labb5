@@ -52,4 +52,12 @@ public class EventQueue {
 		eventList.remove(0);
 		sortEvent();
 	}
+	
+	public boolean isEmpty() {
+		if(eventList.size() == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

@@ -3,6 +3,7 @@ package Lab5.event;
 
 import Lab5.simulation.Event;
 import Lab5.simulation.State;
+import Lab5.state.SuperMarket;
 
 /**
  * Stops the simulation
@@ -15,7 +16,12 @@ import Lab5.simulation.State;
  */
 public class StopEvent extends Event {
 
-    StopEvent(State state) {
-        state.stop = true;
+    StopEvent(State state, EventQueue eq) {
+        s = state;
+        EventQueue = eq;
+        
+        if(!((SuperMarket)s).getOpenForBis() && EventQueue.isEmpty()) {
+        	s.stop = true;
+        }    	
     }
 }
