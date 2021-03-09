@@ -4,8 +4,6 @@ package Lab5.state;
 import java.util.ArrayList;
 
 import Lab5.simulation.Event;
-// TODO: perhaps remove state?
-import Lab5.state.*;
 import Lab5.event.*;
 
 import java.util.NoSuchElementException;
