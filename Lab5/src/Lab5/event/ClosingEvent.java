@@ -1,7 +1,6 @@
 
 package Lab5.event;
 
-import Lab5.simulation.State;
 import Lab5.simulation.Event;
 import Lab5.state.SuperMarket;
 
@@ -14,7 +13,6 @@ import Lab5.state.SuperMarket;
  * @author Rasmus Jacobsen
  *
  */
-
 public class ClosingEvent extends Event {
 
 	private double time;
@@ -26,20 +24,32 @@ public class ClosingEvent extends Event {
 		effect();
 	}
 
+	/**
+	 * Closes the store
+	 */
 	public void effect() {
 		// TODO: add to eventQueue
 
 		((SuperMarket) s).closeStore();
 	}
 
+	/**
+	 * @return double when it will happen
+	 */
 	public double getTime() {
 		return time;
 	}
 
+	/**
+	 * @return String event name
+	 */
 	public String getName() {
 		return "Close";
 	}
 
+	/**
+	 * @return null no customer
+	 */
 	public Object getCustomer() {
 		return null;
 	}

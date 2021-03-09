@@ -16,15 +16,26 @@ import java.util.ArrayList;
 public class EventQueue {
 	private ArrayList<Event> eventList = new ArrayList<>();
 
+	/**
+	 * adds event to queue
+	 * 
+	 * @param event
+	 */
 	public void addEvent(Event event) {
 		eventList.add(event);
 		sortEvent();
 	}
 
+	/**
+	 * @return returns the first event
+	 */
 	public Event getEvent() {
 		return eventList.get(0);
 	}
-
+	
+	/**
+	 * Short the queue based on when the events are bound to happen
+	 */
 	public void sortEvent() {
 
 		if (eventList.size() > 1) { // needs to hold more than 2 objects to sort
@@ -47,12 +58,18 @@ public class EventQueue {
 			}
 		}
 	}
-	
+
+	/**
+	 * Removes the first object in the queue
+	 */
 	public void removeEvent() {
 		eventList.remove(0);
 		sortEvent();
 	}
 	
+	/**
+	 * @return true is queue is empty
+	 */
 	public boolean isEmpty() {
 		if(eventList.size() == 0) {
 			return true;
