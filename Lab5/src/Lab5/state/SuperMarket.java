@@ -18,7 +18,7 @@ public class SuperMarket extends State {
 	boolean openForBis, emptyReg, inQueue;
 
 	int occupiedCashReg, lostCustomer, inStore, seed, shopped;
-	double lambda, kmax, kmin, pmin, pmax;
+	double lambda, closingTime, kmax, kmin, pmin, pmax;
 
 	final int cashRegLimit;
 	final int customerLimit;
@@ -39,6 +39,7 @@ public class SuperMarket extends State {
 		this.pmax = rc.pMax;
 		this.seed = rc.seed;
 		this.lambda = rc.lambda;
+		this.closingTime = rc.closingTime;
 
 		cashRegLimit = rc.regLimit;
 		customerLimit = rc.CLimit;

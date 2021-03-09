@@ -38,6 +38,7 @@ public class TimeState {
 		regTime 	= 0.0;
 		queueTime 	= 0.0;
 		currentTime = 0.0;
+		closingTime = sm.closingTime;
 
 		callClosingEvent();
 	}
