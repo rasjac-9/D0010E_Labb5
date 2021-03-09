@@ -1,6 +1,8 @@
 
 package Lab5.event;
 
+import java.util.NoSuchElementException;
+
 import Lab5.simulation.Event;
 import Lab5.state.SuperMarket;
 
@@ -26,8 +28,12 @@ public class PayEvent extends Event {
 		((SuperMarket) s).customerLeft();
 
 		if (!((SuperMarket) s).cashQueue.isEmpty()) {
-			((SuperMarket) s).cashQueue.getFirst().effect();
-			((SuperMarket) s).cashQueue.removeFirst();
+			try {
+				((SuperMarket) s).cashQueue.getFirst().effect();
+				((SuperMarket) s).cashQueue.removeFirst();			
+			}catch(NoSuchElementException e) {
+				// TODO: make error msg?
+			}
 		}
 	}
 	

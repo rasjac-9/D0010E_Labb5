@@ -20,15 +20,21 @@ import java.util.NoSuchElementException;
 public class FIFO {
 	private ArrayList<Event> cashQueue = new ArrayList<Event>();
 
+	/**
+	 * Adds a event to the event list
+	 * 
+	 * @param e - Event
+	 */
 	public void addToFIFO(Event e) {
 		cashQueue.add(e);
 	}
 
-	public void queueFIFO() {
-
-	}
-
-	public void removeFirst() {
+	/**
+	 * Removes the first event in the list throws exception if list is empty
+	 * 
+	 * @throws NoSuchElementException
+	 */
+	public void removeFirst() throws NoSuchElementException{
 		if (cashQueue.size() > 0) {
 			cashQueue.remove(0);
 		} else {
@@ -36,6 +42,9 @@ public class FIFO {
 		}
 	}
 
+	/**
+	 * @return - true/false depending if the list is empty or not
+	 */
 	public boolean isEmpty() {
 		if (cashQueue.size() == 0) {
 			return true;
@@ -44,7 +53,13 @@ public class FIFO {
 		}
 	}
 
-	public Event getFirst() {
+	/**
+	 * Returns the first event in the list
+	 * 
+	 * @return Event
+	 * @throws NoSuchElementException
+	 */
+	public Event getFirst() throws NoSuchElementException{
 		if (cashQueue.size() > 0) {
 			return cashQueue.get(0);
 		} else {
@@ -53,6 +68,9 @@ public class FIFO {
 
 	}
 
+	/**
+	 * Returns the list in a String format
+	 */
 	public String toString() {
 		String print = "[";
 		for (int i = 0; i < cashQueue.size(); i++) {
@@ -63,6 +81,7 @@ public class FIFO {
 			}
 		}
 		print += "]";
+		
 		return print;
 	}
 }

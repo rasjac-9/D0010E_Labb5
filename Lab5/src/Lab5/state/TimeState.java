@@ -31,33 +31,48 @@ public class TimeState {
 
 	public TimeState(SuperMarket s) {
 		sm = s;
-		ranStreamShop = new UniformRandomStream(s.kmin, s.kmax, s.seed);
-		ranStreamPick = new UniformRandomStream(s.pmin, s.pmax, s.seed);
-		expStream = new ExponentialRandomStream(s.lambda, s.seed);
+		ranStreamShop 	= new UniformRandomStream(s.kmin, s.kmax, s.seed);
+		ranStreamPick 	= new UniformRandomStream(s.pmin, s.pmax, s.seed);
+		expStream 		= new ExponentialRandomStream(s.lambda, s.seed);
 
-		regTime = 0.0;
-		queueTime = 0.0;
+		regTime 	= 0.0;
+		queueTime 	= 0.0;
 		currentTime = 0.0;
 
 		callClosingEvent();
 	}
 
+	/**
+	 * Creates a closing event
+	 */
 	private void callClosingEvent() {
 		ClosingEvent ce = new ClosingEvent(sm, closingTime);
 	}
 
+	/**
+	 * @return double arrival time
+	 */
 	public double getArrivalTime() {
 		return currentTime + expStream.next();
 	}
 
+	/**
+	 * @return double pay time
+	 */
 	public double getPayTime() {
 		return currentTime + ranStreamShop.next();
 	}
 
+	/**
+	 * @return double pick time
+	 */
 	public double getPickTime() {
 		return currentTime + ranStreamPick.next();
 	}
 
+	/**
+	 * Turns on/off if a cash register is empty or not
+	 */
 	public void togelRegTime() {
 		if (sm.occupiedCashReg > 0) {
 			sm.emptyReg = false;
@@ -66,6 +81,9 @@ public class TimeState {
 		}
 	}
 
+	/**
+	 * Turns on/off if some one is in the queue or not
+	 */
 	public void togelQueueTime() {
 		if (!sm.cashQueue.isEmpty()) {
 			sm.inQueue = true;
@@ -74,6 +92,9 @@ public class TimeState {
 		}
 	}
 
+	/**
+	 * Updates the time 
+	 */
 	public void updateTime() {
 		currentTime += 0.01;
 
