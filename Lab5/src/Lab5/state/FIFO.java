@@ -4,18 +4,16 @@ package Lab5.state;
 import java.util.ArrayList;
 
 import Lab5.simulation.Event;
-// TODO: perhaps remove state?
-import Lab5.state.*;
 import Lab5.event.*;
 
 import java.util.NoSuchElementException;
 
 /**
- * The queue to the cash registers 
+ * The queue to the cash registers
  * 
- * @author Alex Bergdahl, 
- * @author Kim Eriksson, 
- * @author Peggy Khialie, 
+ * @author Alex Bergdahl,
+ * @author Kim Eriksson,
+ * @author Peggy Khialie,
  * @author Rasmus Jacobsen
  *
  */
@@ -45,9 +43,26 @@ public class FIFO {
 			return false;
 		}
 	}
-	
+
 	public Event getFirst() {
-		return cashQueue.get(0);
+		if (cashQueue.size() > 0) {
+			return cashQueue.get(0);
+		} else {
+			throw new NoSuchElementException();
+		}
+
 	}
 
+	public String toString() {
+		String print = "[";
+		for (int i = 0; i < cashQueue.size(); i++) {
+			if (print.length() == 1) {
+				print += String.valueOf(cashQueue.get(i).customerID);
+			} else {
+				print += "," + String.valueOf(cashQueue.get(i).customerID);
+			}
+		}
+		print += "]";
+		return print;
+	}
 }

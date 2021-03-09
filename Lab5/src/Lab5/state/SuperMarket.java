@@ -15,7 +15,8 @@ import Lab5.simulation.State;
 
 public class SuperMarket extends State {
 
-    boolean openForBis;
+    boolean openForBis, emptyReg, inQueue;
+
     int occupiedCashReg, lostCustomer, inStore, seed, shopped;
     double lambda, kmax, kmin, pmin, pmax;
 
@@ -27,7 +28,7 @@ public class SuperMarket extends State {
 
     /**
      * Starts the SuperMarket
-     *
+     * 
      * @param regLimit - the limit on how many cashRegisters that exists
      * @param CLimit   - the limit on how many customers aloud in store
      */
@@ -42,6 +43,9 @@ public class SuperMarket extends State {
         customerLimit = rc.CLimit;
 
         openForBis = true;
+        emptyReg = true;
+        inQueue = false;
+        
         occupiedCashReg = 0;
         lostCustomer = 0;
         inStore = 0;
