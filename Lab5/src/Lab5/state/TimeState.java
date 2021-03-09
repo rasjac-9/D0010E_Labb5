@@ -19,13 +19,13 @@ public class TimeState {
 	private ExponentialRandomStream expStream;
 	private UniformRandomStream ranStreamPick;
 	
-	protected int shopTime;
+	protected double shopTime;
 	
-	public int regTime;
-	public int queueTime;
+	public double regTime;
+	public double queueTime;
 	
-	private int closingTime;
-	private int currentTime;
+	private double closingTime;
+	private double currentTime;
 	
 	SuperMarket sm;
 
