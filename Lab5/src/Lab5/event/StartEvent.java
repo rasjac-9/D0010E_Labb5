@@ -2,8 +2,9 @@
 package Lab5.event;
 
 import Lab5.simulation.View;
+import Lab5.simulation.Event;
 import Lab5.state.SuperMarket;
-import Lab5.Simulation;
+
 /**
  * Starts the SuperMarket
  * 
@@ -13,15 +14,16 @@ import Lab5.Simulation;
  * @author Rasmus Jacobsen
  *
  */
-public class StartEvent {
+public class StartEvent extends Event{
 	SuperMarket superMarket;
 	View view;
 
-	StartEvent(int seed, int regLimit, int CLimit, int lambda, int pmin, int pmax, int kmin, int kmax) {
+	StartEvent(EventQueue eq, int seed, int regLimit, int CLimit, int lambda, int pmin, int pmax, int kmin, int kmax) {
 		superMarket = new SuperMarket(seed, regLimit, CLimit, lambda, pmin, pmax, kmin, kmax);
-
+		EventQueue = eq;
+		
 		// EventQue variable not added to superMarket yet
-		SuperMarket.EventQueue.addEvent(new ArrivalEvent(0));
+		EventQueue.addEvent(new ArrivalEvent(0, superMarket));
 
 		// view in StartEvent (?)
 		view = new View();

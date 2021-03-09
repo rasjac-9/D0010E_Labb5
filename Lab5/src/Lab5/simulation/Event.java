@@ -1,6 +1,8 @@
 
 package Lab5.simulation;
 
+import Lab5.event.*;
+
 /**
  * A abstract Event
  * 
@@ -15,6 +17,7 @@ public class Event {
 	public double time;
 	public int customerID;
 	public State s;
+	public EventQueue EventQueue;
 	
 	public Event(){
 	}
