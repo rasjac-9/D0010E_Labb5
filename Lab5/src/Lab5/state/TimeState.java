@@ -1,5 +1,6 @@
+
 /**
- * Description
+ * Gives time to event and keep track of time
  * 
  * @author Alex Bergdahl, 
  * @author Kim Eriksson, 
@@ -19,8 +20,10 @@ public class TimeState {
 	private UniformRandomStream ranStreamPick;
 	
 	protected int shopTime;
+	
 	public int regTime;
 	public int queueTime;
+	
 	private int closingTime;
 	private int currentTime;
 	
