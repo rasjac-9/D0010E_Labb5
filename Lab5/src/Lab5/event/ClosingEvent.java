@@ -20,9 +20,9 @@ public class ClosingEvent extends Event {
 	private double time;
 
 	// if it shall be added to EventQueue when we run the program
-	public ClosingEvent(SuperMarket sm) {
+	public ClosingEvent(SuperMarket sm, double t) {
 		s = sm;
-		time = sm.ts.getCloseTime();
+		time = t;
 		effect();
 	}
 
