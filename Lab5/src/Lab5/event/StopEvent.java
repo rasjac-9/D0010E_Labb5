@@ -8,20 +8,26 @@ import Lab5.state.SuperMarket;
 /**
  * Stops the simulation
  *
- * @author Alex Bergdahl, 
- * @author Kim Eriksson, 
- * @author Peggy Khialie, 
+ * @author Alex Bergdahl,
+ * @author Kim Eriksson,
+ * @author Peggy Khialie,
  * @author Rasmus Jacobsen
  *
  */
 public class StopEvent extends Event {
 
-    StopEvent(State state, EventQueue eq) {
-        s = state;
-        EventQueue = eq;
-        
-        if(!((SuperMarket)s).getOpenForBis() && EventQueue.isEmpty()) {
-        	s.stop = true;
-        }    	
-    }
+	/**
+	 * Checks if the simulation shall end
+	 * 
+	 * @param state - the SuperMarket
+	 * @param eq    - the EventQueue
+	 */
+	StopEvent(State state, EventQueue eq) {
+		s = state;
+		EventQueue = eq;
+
+		if (!((SuperMarket) s).getOpenForBis() && EventQueue.isEmpty()) {
+			s.stop = true;
+		}
+	}
 }

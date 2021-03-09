@@ -31,6 +31,10 @@ public class ArrivalEvent extends Event {
 		effect();
 	}
 
+	/**
+	 * Checks if customer can enter the SuperMarket starts PickEvent and new
+	 * ArrivalEvent if true
+	 */
 	public void effect() {
 		try {
 			((SuperMarket) s).addCustomer();
@@ -44,14 +48,23 @@ public class ArrivalEvent extends Event {
 
 	}
 
+	/**
+	 * @return the time the event will happen
+	 */
 	public double getTime() {
 		return time;
 	}
 
+	/**
+	 * @return - string whit event name
+	 */
 	public String getName() {
 		return "Arrival";
 	}
 
+	/**
+	 * @return - customer ID
+	 */
 	public int getCustomer() {
 		return customerID;
 	}
