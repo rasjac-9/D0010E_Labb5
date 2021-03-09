@@ -23,9 +23,9 @@ public class TimeState {
 	
 	public double regTime;
 	public double queueTime;
+	public double currentTime;
 	
 	private double closingTime;
-	private double currentTime;
 	
 	SuperMarket sm;
 
