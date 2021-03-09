@@ -34,7 +34,7 @@ public class EventQueue {
 			 * > 8) if (5 > 6) second loop: if (8 > 6) {swap place [3,5,6,8]}
 			 */
 			for (int i = 1; i < eventList.size(); i++) {
-				for (int j = 0; j < eventList.size(); j++) {
+				for (int j = 0; j < eventList.size()-1; j++) {
 
 					if (eventList.get(j).time > eventList.get(i).time) {
 						Event eventIndexI = eventList.get(i);
