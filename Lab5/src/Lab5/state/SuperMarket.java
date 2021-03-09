@@ -1,3 +1,9 @@
+
+package Lab5.state;
+
+import Lab5.RunConfig;
+import Lab5.simulation.State;
+
 /**
  * Description
  *
@@ -7,12 +13,6 @@
  * @author Rasmus Jacobsen
  *
  */
-
-package Lab5.state;
-
-import Lab5.RunConfig;
-import Lab5.simulation.State;
-
 public class SuperMarket extends State {
 
     boolean openForBis, emptyReg, inQueue;
