@@ -1,4 +1,9 @@
 
+package Lab5.state;
+
+import Lab5.rand.*;
+import Lab5.event.*;
+
 /**
  * Gives time to event and keep track of time
  * 
@@ -8,11 +13,6 @@
  * @author Rasmus Jacobsen
  *
  */
-package Lab5.state;
-
-import Lab5.rand.*;
-import Lab5.event.*;
-
 public class TimeState {
 	
 	private UniformRandomStream ranStreamShop;
