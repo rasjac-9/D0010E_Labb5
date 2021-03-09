@@ -29,7 +29,7 @@ public class FIFO {
 	}
 
 	public void removeFirst() {
-		if (cashQueue.size() > 0) {
+		if (cashQueue.size() >= 0) {
 			cashQueue.remove(0);
 		} else {
 			throw new NoSuchElementException();
@@ -45,7 +45,7 @@ public class FIFO {
 	}
 
 	public Event getFirst() {
-		if (cashQueue.size() > 0) {
+		if (cashQueue.size() >= 0) {
 			return cashQueue.get(0);
 		} else {
 			throw new NoSuchElementException();
