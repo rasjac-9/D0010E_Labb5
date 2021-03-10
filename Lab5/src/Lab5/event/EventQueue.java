@@ -22,6 +22,7 @@ public class EventQueue {
 	 * @param event
 	 */
 	public void addEvent(Event event) {
+		//System.out.println(event.getName()+ " " +event.time);
 		eventList.add(event);
 		sortEvent();
 	}
@@ -34,7 +35,7 @@ public class EventQueue {
 		return eventList.get(0);
 	} else {
 		throw new NoSuchElementException();
-	}
+		}
 	}
 	/**
 	 * Short the queue based on when the events are bound to happen

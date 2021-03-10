@@ -20,15 +20,16 @@ public class Simulation {
 	public EventQueue eq;
 	public RunConfig rc;
 	public Event start;
-
+	public State s;
 
 	public Simulation() {
 		eq = new EventQueue();
 		rc = new RunConfig();
-
 		start = new StartEvent(eq, rc);
-		
-		for(int i = 0; i<15; i++) {
+		s = start.s;
+		eq.addEvent(start);
+
+		while(!s.stop) {
 			eq.getEvent().effect();
 			eq.removeEvent();
 		

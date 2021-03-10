@@ -25,13 +25,18 @@ public class StartEvent extends Event {
 	 * @param eq - the EventQueueu
 	 * @param rc - the RunConfig
 	 */
+	RunConfig rc;
 	public StartEvent(EventQueue eq, RunConfig rc) {
-		EventQueue = eq;
-		s = new SuperMarket(rc);
+
+		this.EventQueue = eq;
+		s = new SuperMarket(rc, eq);
+		this.rc = rc;
+	}
+
+	public void effect() {
 		((SuperMarket) s).viewUpdate(this);
 		EventQueue.addEvent(new ArrivalEvent(0, s, EventQueue));
-	//	EventQueue.addEvent(new ClosingEvent(((SuperMarket) s), rc.closingTime));
-
+		EventQueue.addEvent(new ClosingEvent(((SuperMarket) s), rc.closingTime));
 	}
 
 	public String getName() { return "Start"; }

@@ -2,6 +2,7 @@
 package Lab5.state;
 
 import Lab5.RunConfig;
+import Lab5.event.EventQueue;
 import Lab5.simulation.Event;
 import Lab5.simulation.State;
 import Lab5.simulation.View;
@@ -34,7 +35,7 @@ public class SuperMarket extends State {
 	 * 
 	 * @param rc - Configuration with parameters
 	 */
-	public SuperMarket(RunConfig rc) {
+	public SuperMarket(RunConfig rc, EventQueue eq) {
 		this.kmax = rc.kMax;
 		this.kmin = rc.kMin;
 		this.pmin = rc.pMin;
@@ -51,7 +52,7 @@ public class SuperMarket extends State {
 		this.view = rc.view;
 		this.addObserver(view);
 		this.closingTime = rc.closingTime;
-
+		eventQueue = eq;
 		openForBis = true;
 		emptyReg = true;
 		inQueue = false;
