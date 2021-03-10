@@ -51,6 +51,7 @@ public class SuperMarket extends State {
 		customerLimit = rc.CLimit;
 		this.view = rc.view;
 		this.addObserver(view);
+		this.closingTime = rc.closingTime;
 
 		openForBis = true;
 		emptyReg = true;

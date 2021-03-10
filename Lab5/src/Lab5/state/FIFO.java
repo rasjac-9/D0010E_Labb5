@@ -74,5 +74,11 @@ public class FIFO {
 
 	public int getSize() { return cashQueue.size();}
 
-	public ArrayList getQue() { return cashQueue;}
+	public ArrayList getQue() {
+		ArrayList<Integer> customerList = new ArrayList<>();
+		for(int i = 0; i < cashQueue.size(); i++) {
+			customerList.add(cashQueue.get(i).customerID);
+		}
+		return customerList;
+	}
 }

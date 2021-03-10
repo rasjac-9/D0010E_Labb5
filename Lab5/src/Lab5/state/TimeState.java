@@ -32,15 +32,15 @@ public class TimeState {
 
 
 		closingTime = sm.closingTime;
-
-		callClosingEvent();
 	}
 
 	/**
 	 * Creates a closing event
 	 */
-	private void callClosingEvent() {
-		ClosingEvent ce = new ClosingEvent(sm, closingTime);
+	public void callClosingEvent() {
+		System.out.println(closingTime);
+		sm.eventQueue.addEvent(new ClosingEvent(sm, closingTime));
+		//ClosingEvent ce = new ClosingEvent(sm, closingTime);
 	}
 
 	/**

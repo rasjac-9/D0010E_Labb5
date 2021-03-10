@@ -27,11 +27,12 @@ public class StartEvent extends Event {
 	 */
 	public StartEvent(EventQueue eq, RunConfig rc) {
 
+		EventQueue = eq;
 		s = new SuperMarket(rc);
 		((SuperMarket) s).viewUpdate(this);
-		EventQueue = eq;
 
 		EventQueue.addEvent(new ArrivalEvent(0, s, EventQueue));
+		EventQueue.addEvent(new ClosingEvent(((SuperMarket) s), rc.closingTime));
 	}
 
 	public String getName() { return "Start"; }

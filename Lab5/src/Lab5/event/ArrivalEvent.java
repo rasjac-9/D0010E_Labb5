@@ -37,7 +37,6 @@ public class ArrivalEvent extends Event {
 	 * ArrivalEvent if true
 	 */
 	public void effect() {
-		System.out.println("0");
 		((SuperMarket) s).viewUpdate(this);
 		try {
 			((SuperMarket) s).addCustomer();

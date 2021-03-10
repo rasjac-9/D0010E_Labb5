@@ -20,6 +20,10 @@ public class SuperMarketConsole extends View {
         Event event = (Event) arg;
         SuperMarket superMarket = (SuperMarket) event.s;
 
+        double currentTime = Math.round(event.time * 100.0)/100.0;
+        double regTime = Math.round(superMarket.regTime * 100.0)/100.0;
+        double queueTime = Math.round(superMarket.queueTime * 100.0)/100.0;
+
         if(event.getName() == "Start") {
             System.out.println(event.time+" "+event.getName());
         } else {
@@ -28,16 +32,16 @@ public class SuperMarketConsole extends View {
             // TODO: counter for how many customers had to FIFOque (FIFOQUECOUNTER)
             // different print "Ö" or "S" depending on open or not
             if(superMarket.getOpenForBis()) {
-                System.out.println(event.time + " " + event.getName() + "   " + superMarket.getCustomers()
-                        + "   Ö  " + superMarket.getAvailableCashReg() + "  " + superMarket.regTime + "  "
+                System.out.println(currentTime + " " + event.getName() + "   " + superMarket.getCustomers()
+                        + "   Ö  " + superMarket.getAvailableCashReg() + "  " + regTime + "  "
                         + superMarket.getCustomers() + " " + superMarket.getShopped() + "  "
-                        + superMarket.getLostCustomer() + "   " + superMarket.cashQueue.queueCounter + "   " + superMarket.queueTime +
+                        + superMarket.getLostCustomer() + "   " + superMarket.cashQueue.queueCounter + "   " + queueTime +
                         " " + " " + superMarket.cashQueue.getSize() + "       " + superMarket.cashQueue.getQue());
             } else {
-                System.out.println(event.time + " " + event.getName() + "   " + superMarket.getCustomers()
-                        + "   S  " + superMarket.getAvailableCashReg() + "  " + superMarket.regTime + "  "
+                System.out.println(currentTime + " " + event.getName() + "   " + superMarket.getCustomers()
+                        + "   S  " + superMarket.getAvailableCashReg() + "  " + regTime + "  "
                         + superMarket.getCustomers() + " " + superMarket.getShopped() + "  "
-                        + superMarket.getLostCustomer() + "   " + superMarket.cashQueue.queueCounter + "   " + superMarket.queueTime +
+                        + superMarket.getLostCustomer() + "   " + superMarket.cashQueue.queueCounter + "   " + queueTime +
                         " " + " " + superMarket.cashQueue.getSize() + "       " + superMarket.cashQueue.getQue());
             }
         }
