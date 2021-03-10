@@ -33,9 +33,6 @@ public class TimeState {
 		ranStreamShop 	= new UniformRandomStream(s.kmin, s.kmax, s.seed);
 		ranStreamPick 	= new UniformRandomStream(s.pmin, s.pmax, s.seed);
 		expStream 		= new ExponentialRandomStream(s.lambda, s.seed);
-
-		regTime 	= 0.0;
-		queueTime 	= 0.0;
 		closingTime = sm.closingTime;
 
 		callClosingEvent();

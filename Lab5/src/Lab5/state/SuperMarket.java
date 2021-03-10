@@ -18,8 +18,8 @@ public class SuperMarket extends State {
 
 	boolean openForBis, emptyReg, inQueue;
 
-	int occupiedCashReg, lostCustomer, inStore, seed, shopped;
-	double lambda, closingTime, kmax, kmin, pmin, pmax;
+	int occupiedCashReg, lostCustomer, inStore, seed, shopped, availableCashReg;
+	double lambda, closingTime, kmax, kmin, pmin, pmax, regTime, queueTime;
 
 	final int cashRegLimit;
 	final int customerLimit;
@@ -40,15 +40,19 @@ public class SuperMarket extends State {
 		this.seed = rc.seed;
 		this.lambda = rc.lambda;
 		this.closingTime = rc.closingTime;
+		this.regTime 	= 0.0;
+		this.queueTime 	= 0.0;
 
 		cashRegLimit = rc.regLimit;
+		availableCashReg = rc.regLimit;
 		customerLimit = rc.CLimit;
 
 		openForBis = true;
 		emptyReg = true;
 		inQueue = false;
 
-		occupiedCashReg = 0;
+		//occupiedCashReg = 0;
+
 		lostCustomer = 0;
 		inStore = 0;
 		
@@ -90,10 +94,10 @@ public class SuperMarket extends State {
 	 * Adds to occupiedCashReg
 	 */
 	public void addToCashReg() throws ArithmeticException {
-		if (occupiedCashReg == cashRegLimit) {
+		if (availableCashReg == 0) {
 			throw new ArithmeticException();
 		} else {
-			occupiedCashReg += 1;
+			availableCashReg -= 1;
 		}
 	}
 
@@ -103,8 +107,8 @@ public class SuperMarket extends State {
 	 * @throws ArithmeticException - if cashRegLimit is reached
 	 */
 	public void freeCashReg() {
-		if (occupiedCashReg != 0) {
-			occupiedCashReg -= 1;
+		if (availableCashReg != cashRegLimit) {
+			availableCashReg += 1;
 		}
 	}
 
@@ -140,6 +144,13 @@ public class SuperMarket extends State {
 	public int getLostCustomer() { return lostCustomer;}
 
 	public void viewUpdate(Event event) {
+		if(availableCashReg != 0) {
+			regTime += (event.time - currentTime)*availableCashReg;
+		}
+		if(!cashQueue.isEmpty()) {
+			queueTime = (event.time - currentTime)*cashQueue.getSize();
+		}
+		currentTime = event.time;
 		setChanged();
 		notifyObservers(event);
 	}
