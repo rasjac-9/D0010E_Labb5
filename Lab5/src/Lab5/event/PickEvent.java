@@ -29,13 +29,14 @@ public class PickEvent extends Event {
 	 * If cash registers are available starts PayEvent else adds to FIFO queue
 	 */
 	public void effect() {
-		((SuperMarket) s).viewUpdate(this);
 		try {
 			((SuperMarket) s).addToCashReg();
 			EventQueue.addEvent(new PayEvent(customerID, (SuperMarket) s));
 		} catch (ArithmeticException e) {
 			((SuperMarket) s).cashQueue.addToFIFO(this);
 		}
+
+		((SuperMarket) s).viewUpdate(this);
 	}
 
 	/**

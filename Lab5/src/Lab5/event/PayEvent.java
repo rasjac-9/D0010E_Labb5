@@ -28,7 +28,6 @@ public class PayEvent extends Event {
 	 * Removes customer from store and checks if cash queue is empty
 	 */
 	public void effect() {
-		((SuperMarket) s).viewUpdate(this);
 		((SuperMarket) s).customerLeft();
 
 		if (!((SuperMarket) s).cashQueue.isEmpty()) {
@@ -39,6 +38,8 @@ public class PayEvent extends Event {
 				// TODO: make error msg?
 			}
 		}
+
+		((SuperMarket) s).viewUpdate(this);
 	}
 
 	/**
