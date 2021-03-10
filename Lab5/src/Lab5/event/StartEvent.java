@@ -26,9 +26,9 @@ public class StartEvent extends Event {
 	 * @param rc - the RunConfig
 	 */
 	public StartEvent(EventQueue eq, RunConfig rc) {
-		((SuperMarket) s).viewUpdate(this);
 
 		s = new SuperMarket(rc);
+		((SuperMarket) s).viewUpdate(this);
 		EventQueue = eq;
 
 		EventQueue.addEvent(new ArrivalEvent(0, s, EventQueue));

@@ -29,14 +29,14 @@ public class SuperMarketConsole extends View {
             // different print "Ö" or "S" depending on open or not
             if(superMarket.getOpenForBis()) {
                 System.out.println(event.time + " " + event.getName() + superMarket.getCustomers()
-                        + "Ö" + superMarket.getAvailableCashReg() + EMPTYCASHREGTIME
+                        + "Ö" + superMarket.getAvailableCashReg() + superMarket.regTime
                         + superMarket.getCustomers() + superMarket.getShopped()
-                        + superMarket.getLostCustomer() + FIFOQUECOUNTER + superMarket.cashQueue.getQue());
+                        + superMarket.getLostCustomer() + superMarket.queueTime + superMarket.cashQueue.queueCounter + superMarket.cashQueue.getQue());
             } else {
                 System.out.println(event.time + " " + event.getName() + superMarket.getCustomers()
-                        + "S" + superMarket.getAvailableCashReg() + EMPTYCASHREGTIME
+                        + "S" + superMarket.getAvailableCashReg() + superMarket.regTime
                         + superMarket.getCustomers() + superMarket.getShopped()
-                        + superMarket.getLostCustomer() + FIFOQUECOUNTER + superMarket.cashQueue.getQue());
+                        + superMarket.getLostCustomer() + superMarket.queueTime + superMarket.cashQueue.queueCounter + superMarket.cashQueue.getQue());
             }
         }
     }

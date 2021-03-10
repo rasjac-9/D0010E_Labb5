@@ -43,7 +43,7 @@ public class SuperMarket extends State {
 		this.closingTime = rc.closingTime;
 		this.regTime 	= 0.0;
 		this.queueTime 	= 0.0;
-
+		cashQueue = new FIFO();
 		cashRegLimit = rc.regLimit;
 		availableCashReg = rc.regLimit;
 		customerLimit = rc.CLimit;

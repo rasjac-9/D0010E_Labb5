@@ -23,10 +23,12 @@ public class ArrivalEvent extends Event {
 	 * @param ID - customer id
 	 * @param s  - the supermarket
 	 */
+	SuperMarket s;
 	public ArrivalEvent(int ID, State s, EventQueue eq) {
 		customerID = ID;
 		EventQueue = eq;
 		time = ((SuperMarket) s).ts.getArrivalTime();
+		this.s = (SuperMarket) s;
 
 		effect();
 	}
