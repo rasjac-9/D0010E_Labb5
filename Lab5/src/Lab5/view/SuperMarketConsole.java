@@ -30,19 +30,19 @@ public class SuperMarketConsole extends View {
 			System.out.println(event.time + "\t" + event.getName());
 		} else {
 
-			// TODO: add time that there have been empty cashReg (EMPTYCASHREGTIME)
+			// TODO: add time that there have been empty cashReg (EMPTYCASHREGTIME) 
 			// TODO: counter for how many customers had to FIFOque (FIFOQUECOUNTER)
 			// different print "Ö" or "S" depending on open or not
 			if (superMarket.getOpenForBis()) {
 				if (event.getName() == "Betalning") {
-					System.out.println(currentTime + "\t" + event.getName() + "\t" + superMarket.getCustomers()
+					System.out.println(currentTime + "\t" + event.getName() + "\t" + event.getCustomerID()
 							+ "\tÖ\t" + superMarket.getAvailableCashReg() + "\t" + regTime + "\t"
 							+ superMarket.getCustomers() + "\t" + superMarket.getShopped() + "\t"
 							+ superMarket.getLostCustomer() + "\t" + superMarket.cashQueue.queueCounter + "\t"
 							+ queueTime + "\t" + "\t" + superMarket.cashQueue.getSize() + "\t"
 							+ superMarket.cashQueue.getQue());
 				} else {
-					System.out.println(currentTime + "\t" + event.getName() + "\t\t" + superMarket.getCustomers()
+					System.out.println(currentTime + "\t" + event.getName() + "\t\t" + event.getCustomerID()
 							+ "\tÖ\t" + superMarket.getAvailableCashReg() + "\t" + regTime + "\t"
 							+ superMarket.getCustomers() + "\t" + superMarket.getShopped() + "\t"
 							+ superMarket.getLostCustomer() + "\t" + superMarket.cashQueue.queueCounter + "\t"
@@ -51,14 +51,14 @@ public class SuperMarketConsole extends View {
 				}
 			} else {
 				if (event.getName() == "Betalning") {
-					System.out.println(currentTime + "\t" + event.getName() + "\t" + superMarket.getCustomers()
+					System.out.println(currentTime + "\t" + event.getName() + "\t" + event.getCustomerID()
 							+ "\tS\t" + superMarket.getAvailableCashReg() + "\t" + regTime + "\t"
 							+ superMarket.getCustomers() + "\t" + superMarket.getShopped() + "\t"
 							+ superMarket.getLostCustomer() + "\t" + superMarket.cashQueue.queueCounter + "\t"
 							+ queueTime + "\t" + "\t" + superMarket.cashQueue.getSize() + "\t"
 							+ superMarket.cashQueue.getQue());
 				} else {
-					System.out.println(currentTime + "\t" + event.getName() + "\t\t" + superMarket.getCustomers()
+					System.out.println(currentTime + "\t" + event.getName() + "\t\t" + event.getCustomerID()
 							+ "\tS\t" + superMarket.getAvailableCashReg() + "\t" + regTime + "\t"
 							+ superMarket.getCustomers() + "\t" + superMarket.getShopped() + "\t"
 							+ superMarket.getLostCustomer() + "\t" + superMarket.cashQueue.queueCounter + "\t"

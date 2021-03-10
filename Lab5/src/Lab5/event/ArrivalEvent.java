@@ -16,7 +16,7 @@ import Lab5.state.SuperMarket;
  *
  */
 public class ArrivalEvent extends Event {
-
+	
 	/**
 	 * Creates a arrival event
 	 * 
@@ -24,7 +24,7 @@ public class ArrivalEvent extends Event {
 	 * @param s  - the supermarket
 	 */
 	public ArrivalEvent(int ID, State s, EventQueue eq) {
-		customerID = ID;
+		customerID = ID; //customerID
 		EventQueue = eq;
 		time = ((SuperMarket) s).ts.getArrivalTime();
 		this.s = (SuperMarket) s;

@@ -16,7 +16,8 @@ import java.util.NoSuchElementException;
  *
  */
 public class PayEvent extends Event {
-
+	
+	
 	PayEvent(int ID, SuperMarket superMarket) {
 		customerID = ID;
 		time = superMarket.ts.getPayTime();
