@@ -7,7 +7,7 @@ import java.util.Observer;
 @SuppressWarnings("deprecation")
 public class View implements Observer{
 	
-	public void update(){
+	public void update(Observable arg0){
 		
 	}
 
