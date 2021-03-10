@@ -25,6 +25,9 @@ public class SuperMarketConsole extends View {
 
 		if (event.getName() == "Start") {
 			System.out.println(event.time + "\t" + event.getName());
+		}
+		else if (event.getName() == "Stop") {
+			System.out.println(event.time + "\t" + event.getName());
 		} else {
 
 			// TODO: add time that there have been empty cashReg (EMPTYCASHREGTIME)

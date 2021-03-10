@@ -27,11 +27,10 @@ public class StopEvent extends Event {
 		this.time = time;
 		this.EventQueue = eq;
 		s = state;
-		((SuperMarket) s).viewUpdate(this);
-
 	}
 
 	public void effect() {
+		((SuperMarket) s).viewUpdate(this);
 		if (!((SuperMarket) s).getOpenForBis() && EventQueue.getEvent().getName() == "Stop") {
 			s.stop = true;
 		} else {
