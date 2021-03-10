@@ -3,7 +3,7 @@ package Lab5.event;
 
 import Lab5.simulation.Event;
 import java.util.ArrayList;
-
+import java.util.NoSuchElementException;
 /**
  * Queues all event
  * 
@@ -30,10 +30,12 @@ public class EventQueue {
 	 * @return returns the first event
 	 */
 	public Event getEvent() {
-		
+		if (eventList.size() > 0) {
 		return eventList.get(0);
+	} else {
+		throw new NoSuchElementException();
 	}
-	
+	}
 	/**
 	 * Short the queue based on when the events are bound to happen
 	 */
