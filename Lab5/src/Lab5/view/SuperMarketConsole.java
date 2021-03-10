@@ -40,7 +40,7 @@ public class SuperMarketConsole extends View {
 							+ superMarket.cashQueue.getQue());
 				} else {
 					System.out.println(currentTime + "\t" + event.getName() + "\t\t" + superMarket.getCustomers()
-							+ "\tS\t" + superMarket.getAvailableCashReg() + "\t" + regTime + "\t"
+							+ "\tÖ\t" + superMarket.getAvailableCashReg() + "\t" + regTime + "\t"
 							+ superMarket.getCustomers() + "\t" + superMarket.getShopped() + "\t"
 							+ superMarket.getLostCustomer() + "\t" + superMarket.cashQueue.queueCounter + "\t"
 							+ queueTime + "\t" + "\t" + superMarket.cashQueue.getSize() + "\t"

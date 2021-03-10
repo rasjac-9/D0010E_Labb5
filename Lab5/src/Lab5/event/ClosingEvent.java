@@ -15,7 +15,7 @@ import Lab5.state.SuperMarket;
  */
 public class ClosingEvent extends Event {
 
-	private double time;
+	public double time;
 
 	// if it shall be added to EventQueue when we run the program
 	public ClosingEvent(SuperMarket sm, double t) {
@@ -29,7 +29,7 @@ public class ClosingEvent extends Event {
 	 */
 	public void effect() {
 		// TODO: add to eventQueue
-		((SuperMarket) s).viewUpdate(this);
+		((SuperMarket) s).viewUpdate(this);  
 		((SuperMarket) s).closeStore();
 	}
 
