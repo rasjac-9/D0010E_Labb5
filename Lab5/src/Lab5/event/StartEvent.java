@@ -37,6 +37,7 @@ public class StartEvent extends Event {
 		((SuperMarket) s).viewUpdate(this);
 		EventQueue.addEvent(new ArrivalEvent(0, s, EventQueue));
 		EventQueue.addEvent(new ClosingEvent(((SuperMarket) s), rc.closingTime));
+		EventQueue.addEvent(new StopEvent(s, EventQueue,99));
 	}
 
 	public String getName() { return "Start"; }

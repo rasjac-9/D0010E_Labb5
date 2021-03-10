@@ -22,13 +22,20 @@ public class StopEvent extends Event {
 	 * @param state - the SuperMarket
 	 * @param eq    - the EventQueue
 	 */
-	StopEvent(State state, EventQueue eq) {
-		((SuperMarket) s).viewUpdate(this);
+	public EventQueue eq;
+	StopEvent(State state, EventQueue eq, double time) {
+		this.time = time;
+		this.EventQueue = eq;
 		s = state;
-		EventQueue = eq;
+		((SuperMarket) s).viewUpdate(this);
 
-		if (!((SuperMarket) s).getOpenForBis() && EventQueue.isEmpty()) {
+	}
+
+	public void effect() {
+		if (!((SuperMarket) s).getOpenForBis() && EventQueue.getEvent().getName() == "Stop") {
 			s.stop = true;
+		} else {
+			EventQueue.addEvent(this);
 		}
 	}
 
