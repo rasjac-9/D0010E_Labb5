@@ -36,8 +36,6 @@ public class Simulation {
 				eq.removeEvent();
 				
 			}
-			
-			((SuperMarket) s).ts.updateTime();
 		}
 	}
 }

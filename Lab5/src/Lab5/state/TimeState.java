@@ -20,10 +20,6 @@ public class TimeState {
 	private UniformRandomStream ranStreamPick;
 
 	protected double shopTime;
-
-	public double regTime;
-	public double queueTime;
-
 	private double closingTime;
 
 	SuperMarket sm;
@@ -33,6 +29,8 @@ public class TimeState {
 		ranStreamShop 	= new UniformRandomStream(s.kmin, s.kmax, s.seed);
 		ranStreamPick 	= new UniformRandomStream(s.pmin, s.pmax, s.seed);
 		expStream 		= new ExponentialRandomStream(s.lambda, s.seed);
+
+
 		closingTime = sm.closingTime;
 
 		callClosingEvent();
