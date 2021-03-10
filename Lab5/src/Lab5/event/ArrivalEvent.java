@@ -23,7 +23,6 @@ public class ArrivalEvent extends Event {
 	 * @param ID - customer id
 	 * @param s  - the supermarket
 	 */
-	SuperMarket s;
 	public ArrivalEvent(int ID, State s, EventQueue eq) {
 		customerID = ID;
 		EventQueue = eq;
@@ -38,6 +37,7 @@ public class ArrivalEvent extends Event {
 	 * ArrivalEvent if true
 	 */
 	public void effect() {
+		System.out.println("0");
 		((SuperMarket) s).viewUpdate(this);
 		try {
 			((SuperMarket) s).addCustomer();
