@@ -19,7 +19,7 @@ import java.util.NoSuchElementException;
  */
 public class FIFO {
 	private ArrayList<Event> cashQueue = new ArrayList<Event>();
-
+    public int queueCounter = 0;
 	/**
 	 * Adds a event to the event list
 	 * 
@@ -27,6 +27,7 @@ public class FIFO {
 	 */
 	public void addToFIFO(Event e) {
 		cashQueue.add(e);
+		queueCounter++;
 	}
 
 	/**
@@ -41,7 +42,9 @@ public class FIFO {
 			throw new NoSuchElementException();
 		}
 	}
-
+	public int totalQueue() {
+		return queueCounter;
+	}
 	/**
 	 * @return - true/false depending if the list is empty or not
 	 */
