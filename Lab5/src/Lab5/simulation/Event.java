@@ -36,4 +36,8 @@ public class Event {
 	public String getName() {
 		return "event";
 	}
+	
+	public int getCustomerID() {
+		return customerID;
+	}
 }

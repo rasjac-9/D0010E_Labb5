@@ -41,7 +41,6 @@ public class PickEvent extends Event {
 	
 	public void effect(double t) {
 		time = t;
-		((SuperMarket) s).viewUpdate(this);
 		
 		try {
 			((SuperMarket) s).addToCashReg();
