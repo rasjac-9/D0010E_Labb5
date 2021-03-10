@@ -19,7 +19,7 @@ public class SuperMarket extends State {
 	boolean openForBis, emptyReg, inQueue;
 
 	int occupiedCashReg, lostCustomer, inStore, seed, shopped, availableCashReg;
-	double lambda, closingTime, kmax, kmin, pmin, pmax, regTime, queueTime;
+	double lambda, closingTime, kmax, kmin, pmin, pmax;
 
 	final int cashRegLimit;
 	final int customerLimit;
