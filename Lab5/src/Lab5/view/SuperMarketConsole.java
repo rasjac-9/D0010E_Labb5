@@ -35,7 +35,7 @@ public class SuperMarketConsole extends View {
 			System.out.println(event.time + "\t" + event.getName());
 		}
 		else if (event.getName() == "Stänger") {
-			System.out.println(currentTime + "\t" + event.getName() + "\t\t---\t"
+			System.out.println(currentTime + "\t" + event.getName() + "   ---\t"
 					+ "Ö\t" + superMarket.getAvailableCashReg() + "\t" + regTime + "\t"
 					+ superMarket.getCustomers() + "\t" + superMarket.getShopped() + "\t"
 					+ superMarket.getLostCustomer() + "\t" + superMarket.cashQueue.queueCounter + "\t"
