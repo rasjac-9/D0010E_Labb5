@@ -40,10 +40,17 @@ public class ArrivalEvent extends Event {
 		try {
 			((SuperMarket) s).addCustomer();
 			EventQueue.addEvent(new PickEvent(customerID, (SuperMarket) s, EventQueue));
-			EventQueue.addEvent(new ArrivalEvent(customerID + 1, (SuperMarket) s, EventQueue));
+			
+			if(((SuperMarket) s).getOpenForBis()) {
+				EventQueue.addEvent(new ArrivalEvent(customerID + 1, (SuperMarket) s, EventQueue));
+			}
+			
 		} catch (ArithmeticException e) {
 			((SuperMarket) s).lostCustomer();
-			EventQueue.addEvent(new ArrivalEvent(customerID, (SuperMarket) s, EventQueue));
+			
+			if(((SuperMarket) s).getOpenForBis()) {
+				EventQueue.addEvent(new ArrivalEvent(customerID, (SuperMarket) s, EventQueue));
+			}
 		}
 
 	}
