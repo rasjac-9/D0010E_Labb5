@@ -29,7 +29,6 @@ public class ArrivalEvent extends Event {
 		time = ((SuperMarket) s).ts.getArrivalTime();
 		this.s = (SuperMarket) s;
 
-		effect();
 	}
 
 	/**
@@ -38,20 +37,15 @@ public class ArrivalEvent extends Event {
 	 */
 	public void effect() {
 		((SuperMarket) s).viewUpdate(this);
-		try {
-			((SuperMarket) s).addCustomer();
-			EventQueue.addEvent(new PickEvent(customerID, (SuperMarket) s, EventQueue));
+		if (((SuperMarket) s).getOpenForBis() && ((SuperMarket) s).addCustomer()) {
 			
-			if(((SuperMarket) s).getOpenForBis()) {
-				EventQueue.addEvent(new ArrivalEvent(customerID + 1, (SuperMarket) s, EventQueue));
-			}
-			
-		} catch (ArithmeticException e) {
+			EventQueue.addEvent(new PickEvent(customerID, s, EventQueue));
+			EventQueue.addEvent(new ArrivalEvent(customerID++, s, EventQueue));
+
+		} else if (((SuperMarket) s).getOpenForBis() && !((SuperMarket) s).addCustomer()) {
+
 			((SuperMarket) s).lostCustomer();
-			
-			if(((SuperMarket) s).getOpenForBis()) {
-				EventQueue.addEvent(new ArrivalEvent(customerID, (SuperMarket) s, EventQueue));
-			}
+			EventQueue.addEvent(new ArrivalEvent(customerID, s, EventQueue));
 		}
 
 	}

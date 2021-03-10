@@ -21,7 +21,7 @@ public class ClosingEvent extends Event {
 	public ClosingEvent(SuperMarket sm, double t) {
 		s = sm;
 		time = t;
-		effect();
+
 	}
 
 	/**

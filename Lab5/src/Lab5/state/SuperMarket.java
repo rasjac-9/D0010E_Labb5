@@ -29,7 +29,6 @@ public class SuperMarket extends State {
 	public TimeState ts;
 	public FIFO cashQueue;
 	public View view;
-
 	/**
 	 * Starts the SuperMarket
 	 * 
@@ -70,11 +69,12 @@ public class SuperMarket extends State {
 	 *
 	 * @throws ArithmeticException - if customerLimtit is reached
 	 */
-	public void addCustomer() throws ArithmeticException {
+	public boolean addCustomer() {
 		if (inStore == customerLimit) {
-			throw new ArithmeticException();
+			return false;
 		} else {
 			inStore += 1;
+			return true;
 		}
 	}
 

@@ -22,7 +22,7 @@ public class PickEvent extends Event {
 		s = sm;
 		time = ((SuperMarket) s).ts.getPickTime();
 
-		this.effect();
+
 	}
 
 	/**

@@ -30,15 +30,12 @@ public class TimeState {
 		ranStreamPick 	= new UniformRandomStream(s.pmin, s.pmax, s.seed);
 		expStream 		= new ExponentialRandomStream(s.lambda, s.seed);
 
-
-		closingTime = sm.closingTime;
 	}
 
 	/**
 	 * Creates a closing event
 	 */
 	public void callClosingEvent() {
-		System.out.println(closingTime);
 		sm.eventQueue.addEvent(new ClosingEvent(sm, closingTime));
 		//ClosingEvent ce = new ClosingEvent(sm, closingTime);
 	}
