@@ -23,7 +23,8 @@ public class SuperMarket extends State {
 
 	final int cashRegLimit;
 	final int customerLimit;
-
+	public double regTime;
+	public double queueTime;
 	public TimeState ts;
 	public FIFO cashQueue;
 
