@@ -17,7 +17,7 @@ import Lab5.state.SuperMarket;
 public class PickEvent extends Event {
 
 	public PickEvent(int ID, State sm, EventQueue eq) {
-		customerID = ID;
+		customerID = ID;  
 		EventQueue = eq;
 		s = sm;
 		time = ((SuperMarket) s).ts.getPickTime();

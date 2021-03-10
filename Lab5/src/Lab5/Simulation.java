@@ -30,8 +30,10 @@ public class Simulation {
 		eq.addEvent(start);
 
 		while(!s.stop) {
-			eq.getEvent().effect();
-			eq.removeEvent();
+			if(!eq.isEmpty()) {
+				eq.getEvent().effect();
+				eq.removeEvent();
+			}
 		
 		}
 	}
