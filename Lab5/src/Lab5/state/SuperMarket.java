@@ -4,6 +4,7 @@ package Lab5.state;
 import Lab5.RunConfig;
 import Lab5.simulation.Event;
 import Lab5.simulation.State;
+import Lab5.simulation.View;
 
 /**
  * Description
@@ -27,6 +28,7 @@ public class SuperMarket extends State {
 	public double queueTime;
 	public TimeState ts;
 	public FIFO cashQueue;
+	public View view;
 
 	/**
 	 * Starts the SuperMarket
@@ -47,6 +49,8 @@ public class SuperMarket extends State {
 		cashRegLimit = rc.regLimit;
 		availableCashReg = rc.regLimit;
 		customerLimit = rc.CLimit;
+		this.view = rc.view;
+		this.addObserver(view);
 
 		openForBis = true;
 		emptyReg = true;

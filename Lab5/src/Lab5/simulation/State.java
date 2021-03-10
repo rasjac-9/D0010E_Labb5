@@ -17,4 +17,5 @@ public class State extends Observable {
 	public boolean stop = false;
 	public double currentTime = 0;
 	public EventQueue eventQueue;
+	public View view;
 }
