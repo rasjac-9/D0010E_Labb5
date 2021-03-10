@@ -25,7 +25,11 @@ public class Event {
 	public void effect() {
 		
 	}
-	
+
+	public void effect(double t) {
+		
+	}
+
 	public void addToEvent() {
 	}
 

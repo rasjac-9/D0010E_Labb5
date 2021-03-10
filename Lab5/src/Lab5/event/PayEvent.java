@@ -33,7 +33,7 @@ public class PayEvent extends Event {
 
 		if (!((SuperMarket) s).cashQueue.isEmpty()) {
 			try {
-				((SuperMarket) s).cashQueue.getFirst().effect();
+				((SuperMarket) s).cashQueue.getFirst().effect(time);
 				((SuperMarket) s).cashQueue.removeFirst();
 			} catch (NoSuchElementException e) {
 				// TODO: make error msg?
