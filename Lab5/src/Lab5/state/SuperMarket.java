@@ -51,7 +51,7 @@ public class SuperMarket extends State {
 		occupiedCashReg = 0;
 		lostCustomer = 0;
 		inStore = 0;
-
+		
 		ts = new TimeState(this);
 	}
 

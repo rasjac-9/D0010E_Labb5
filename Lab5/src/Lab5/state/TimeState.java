@@ -23,7 +23,6 @@ public class TimeState {
 
 	public double regTime;
 	public double queueTime;
-	public double currentTime;
 
 	private double closingTime;
 
@@ -37,7 +36,6 @@ public class TimeState {
 
 		regTime 	= 0.0;
 		queueTime 	= 0.0;
-		currentTime = 0.0;
 		closingTime = sm.closingTime;
 
 		callClosingEvent();
@@ -54,57 +52,21 @@ public class TimeState {
 	 * @return double arrival time
 	 */
 	public double getArrivalTime() {
-		return currentTime + expStream.next();
+		return sm.currentTime + expStream.next();
 	}
 
 	/**
 	 * @return double pay time
 	 */
 	public double getPayTime() {
-		return currentTime + ranStreamShop.next();
+		return sm.currentTime + ranStreamShop.next();
 	}
 
 	/**
 	 * @return double pick time
 	 */
 	public double getPickTime() {
-		return currentTime + ranStreamPick.next();
+		return sm.currentTime + ranStreamPick.next();
 	}
 
-	/**
-	 * Turns on/off if a cash register is empty or not
-	 */
-	public void togelRegTime() {
-		if (sm.occupiedCashReg > 0) {
-			sm.emptyReg = false;
-		} else {
-			sm.emptyReg = true;
-		}
-	}
-
-	/**
-	 * Turns on/off if some one is in the queue or not
-	 */
-	public void togelQueueTime() {
-		if (!sm.cashQueue.isEmpty()) {
-			sm.inQueue = true;
-		} else {
-			sm.inQueue = false;
-		}
-	}
-
-	/**
-	 * Updates the time 
-	 */
-	public void updateTime() {
-		currentTime += 0.01;
-
-		if (sm.emptyReg) {
-			regTime += 0.01;
-		}
-
-		if (sm.inQueue) {
-			queueTime += 0.01;
-		}
-	}
 }

@@ -35,7 +35,7 @@ public class FIFO {
 	 * @throws NoSuchElementException
 	 */
 	public void removeFirst() throws NoSuchElementException{
-		if (cashQueue.size() > 0) {
+		if (getSize() > 0) {
 			cashQueue.remove(0);
 		} else {
 			throw new NoSuchElementException();
@@ -46,7 +46,7 @@ public class FIFO {
 	 * @return - true/false depending if the list is empty or not
 	 */
 	public boolean isEmpty() {
-		if (cashQueue.size() == 0) {
+		if (getSize() == 0) {
 			return true;
 		} else {
 			return false;
@@ -68,22 +68,6 @@ public class FIFO {
 
 	}
 
-	/**
-	 * Returns the list in a String format
-	 */
-	public String toString() {
-		String print = "[";
-		for (int i = 0; i < cashQueue.size(); i++) {
-			if (print.length() == 1) {
-				print += String.valueOf(cashQueue.get(i).customerID);
-			} else {
-				print += "," + String.valueOf(cashQueue.get(i).customerID);
-			}
-		}
-		print += "]";
-		
-		return print;
-	}
 
 	public int getSize() { return cashQueue.size();}
 

@@ -3,7 +3,7 @@ package Lab5.event;
 
 import Lab5.simulation.Event;
 import java.util.ArrayList;
-
+import 
 /**
  * Queues all event
  * 
@@ -30,6 +30,7 @@ public class EventQueue {
 	 * @return returns the first event
 	 */
 	public Event getEvent() {
+		
 		return eventList.get(0);
 	}
 	
@@ -65,6 +66,7 @@ public class EventQueue {
 	public void removeEvent() {
 		eventList.remove(0);
 		sortEvent();
+
 	}
 	
 	/**

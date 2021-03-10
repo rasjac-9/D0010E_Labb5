@@ -31,7 +31,7 @@ public class Simulation {
 		
 		while(!start.s.stop) {
 			
-			if(eq.getEvent().time == ((SuperMarket) s).ts.currentTime) {
+			if(eq.getEvent().time == s.currentTime) {
 				eq.getEvent().effect();
 				eq.removeEvent();
 				
