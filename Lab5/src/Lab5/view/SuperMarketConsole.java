@@ -33,7 +33,7 @@ public class SuperMarketConsole extends View {
 			if (superMarket.getOpenForBis()) {
 				if (event.getName() == "Betalning") {
 					System.out.println(currentTime + "\t" + event.getName() + "\t" + superMarket.getCustomers()
-							+ "\tS\t" + superMarket.getAvailableCashReg() + "\t" + regTime + "\t"
+							+ "\tÖ\t" + superMarket.getAvailableCashReg() + "\t" + regTime + "\t"
 							+ superMarket.getCustomers() + "\t" + superMarket.getShopped() + "\t"
 							+ superMarket.getLostCustomer() + "\t" + superMarket.cashQueue.queueCounter + "\t"
 							+ queueTime + "\t" + "\t" + superMarket.cashQueue.getSize() + "\t"
