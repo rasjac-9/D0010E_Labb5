@@ -23,6 +23,7 @@ public class StopEvent extends Event {
 	 * @param eq    - the EventQueue
 	 */
 	StopEvent(State state, EventQueue eq) {
+		((SuperMarket) s).viewUpdate(this);
 		s = state;
 		EventQueue = eq;
 

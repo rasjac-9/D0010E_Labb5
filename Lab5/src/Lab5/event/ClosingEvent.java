@@ -29,7 +29,7 @@ public class ClosingEvent extends Event {
 	 */
 	public void effect() {
 		// TODO: add to eventQueue
-
+		((SuperMarket) s).viewUpdate(this);
 		((SuperMarket) s).closeStore();
 	}
 

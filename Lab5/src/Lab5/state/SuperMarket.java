@@ -149,7 +149,7 @@ public class SuperMarket extends State {
 			regTime += (event.time - currentTime)*availableCashReg;
 		}
 		if(!cashQueue.isEmpty()) {
-			queueTime = (event.time - currentTime)*cashQueue.getSize();
+			queueTime += (event.time - currentTime)*cashQueue.getSize();
 		}
 		currentTime = event.time;
 		setChanged();
