@@ -3,7 +3,7 @@ package Lab5.event;
 
 import Lab5.simulation.Event;
 import java.util.ArrayList;
-import 
+
 /**
  * Queues all event
  * 

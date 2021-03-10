@@ -27,15 +27,13 @@ public class Simulation {
 		rc = new RunConfig();
 
 		start = new StartEvent(eq, rc);
-		s = (SuperMarket) start.s;
+		s = start.s;
 		
-		while(!start.s.stop) {
+		while(!s.stop) {
 			
-			if(eq.getEvent().time == s.currentTime) {
-				eq.getEvent().effect();
-				eq.removeEvent();
-				
-			}
+			eq.getEvent().effect();
+			eq.removeEvent();
+		
 		}
 	}
 }
