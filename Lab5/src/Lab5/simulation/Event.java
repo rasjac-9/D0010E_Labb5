@@ -23,10 +23,12 @@ public class Event {
 	}
 	
 	public void effect() {
-		
 	}
 	
 	public void addToEvent() {
-		
+	}
+
+	public String getName() {
+		return "event";
 	}
 }

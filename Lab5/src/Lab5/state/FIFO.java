@@ -84,4 +84,8 @@ public class FIFO {
 		
 		return print;
 	}
+
+	public int getSize() { return cashQueue.size();}
+
+	public ArrayList getQue() { return cashQueue;}
 }

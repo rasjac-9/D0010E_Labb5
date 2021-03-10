@@ -30,4 +30,6 @@ public class StopEvent extends Event {
 			s.stop = true;
 		}
 	}
+
+	public String getName() { return "Stop"; }
 }

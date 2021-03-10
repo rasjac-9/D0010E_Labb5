@@ -2,6 +2,7 @@
 package Lab5.state;
 
 import Lab5.RunConfig;
+import Lab5.simulation.Event;
 import Lab5.simulation.State;
 
 /**
@@ -29,8 +30,7 @@ public class SuperMarket extends State {
 	/**
 	 * Starts the SuperMarket
 	 * 
-	 * @param regLimit - the limit on how many cashRegisters that exists
-	 * @param CLimit   - the limit on how many customers aloud in store
+	 * @param rc - Configuration with parameters
 	 */
 	public SuperMarket(RunConfig rc) {
 		this.kmax = rc.kMax;
@@ -127,5 +127,20 @@ public class SuperMarket extends State {
 	 */
 	public boolean getOpenForBis() {
 		return openForBis;
+	}
+
+	public int getCustomers() {
+		return inStore;
+	}
+
+	public int getShopped() {
+		return shopped;
+	}
+
+	public int getLostCustomer() { return lostCustomer;}
+
+	public void viewUpdate(Event event) {
+		setChanged();
+		notifyObservers(event);
 	}
 }

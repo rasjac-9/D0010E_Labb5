@@ -46,4 +46,6 @@ public class PayEvent extends Event {
 	public int getCustomer() {
 		return customerID;
 	}
+
+	public String getName() { return "Betalning"; }
 }

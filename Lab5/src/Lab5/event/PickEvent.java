@@ -43,4 +43,6 @@ public class PickEvent extends Event {
 	public int getCustomer() {
 		return customerID;
 	}
+
+	public String getName() { return "Plock"; }
 }

@@ -44,7 +44,7 @@ public class ClosingEvent extends Event {
 	 * @return String event name
 	 */
 	public String getName() {
-		return "Close";
+		return "Stänger";
 	}
 
 	/**

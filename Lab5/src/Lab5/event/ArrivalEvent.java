@@ -59,7 +59,7 @@ public class ArrivalEvent extends Event {
 	 * @return - string whit event name
 	 */
 	public String getName() {
-		return "Arrival";
+		return "Ankomst";
 	}
 
 	/**

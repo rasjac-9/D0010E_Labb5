@@ -34,4 +34,6 @@ public class StartEvent extends Event {
 		// view in StartEvent (?)
 		view = new View();
 	}
+
+	public String getName() { return "Start"; }
 }
