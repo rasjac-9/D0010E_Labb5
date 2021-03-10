@@ -1,6 +1,7 @@
 package Lab5.simulation;
 
 import Lab5.event.EventQueue;
+import java.util.Observable;
 
 /**
  * Creates a abstract state
@@ -11,7 +12,7 @@ import Lab5.event.EventQueue;
  * @author Rasmus Jacobsen
  *
  */
-public class State {
+public class State extends Observable {
 	public boolean stop = false;
 	public EventQueue eventQueue = new EventQueue();
 }
