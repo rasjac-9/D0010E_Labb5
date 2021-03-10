@@ -123,7 +123,7 @@ public class SuperMarket extends State {
 	 * @return the amount of occupiedCashReg
 	 */
 	public int getAvailableCashReg() {
-		return cashRegLimit - occupiedCashReg;
+		return availableCashReg;
 	}
 
 	/**

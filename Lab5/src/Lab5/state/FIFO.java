@@ -43,7 +43,7 @@ public class FIFO {
 		}
 	}
 	public int totalQueue() {
-		return queueCounter;
+		return queueCounter; 
 	}
 	/**
 	 * @return - true/false depending if the list is empty or not
