@@ -5,10 +5,8 @@ public class main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		if(args[0].equals("j")) {
-			System.out.println("Din mamma");
-		}
+
+		new Optimise();
 		
 		/*
 		if(args.length==0) {
