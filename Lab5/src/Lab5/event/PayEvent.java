@@ -16,8 +16,7 @@ import java.util.NoSuchElementException;
  *
  */
 public class PayEvent extends Event {
-	
-	
+
 	PayEvent(int ID, SuperMarket superMarket) {
 		customerID = ID;
 		time = superMarket.ts.getPayTime();
@@ -26,20 +25,16 @@ public class PayEvent extends Event {
 	}
 
 	/**
-	 * Removes customer from store and checks if cash queue is empty
-	 * else get the first customer from the queue and make a pay event.
+	 * Removes customer from store and checks if cash queue is empty else get the
+	 * first customer from the queue and make a pay event.
 	 */
 	public void effect() {
 		((SuperMarket) s).viewUpdate(this);
 		((SuperMarket) s).customerLeft();
 
 		if (!((SuperMarket) s).cashQueue.isEmpty()) {
-			try {
-				((SuperMarket) s).cashQueue.getFirst().effect(time);
-				((SuperMarket) s).cashQueue.removeFirst();
-			} catch (NoSuchElementException e) {
-				// TODO: make error msg?
-			}
+			((SuperMarket) s).cashQueue.getFirst().effect(time);
+			((SuperMarket) s).cashQueue.removeFirst();
 		}
 	}
 
@@ -49,8 +44,11 @@ public class PayEvent extends Event {
 	public int getCustomer() {
 		return customerID;
 	}
+
 	/**
 	 * returns the name of the event.
 	 */
-	public String getName() { return "Betalning"; }
+	public String getName() {
+		return "Betalning";
+	}
 }

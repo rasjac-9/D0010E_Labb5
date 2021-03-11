@@ -26,24 +26,29 @@ public class StartEvent extends Event {
 	 * @param rc - the RunConfig
 	 */
 	RunConfig rc;
+
 	public StartEvent(EventQueue eq, RunConfig rc) {
 
 		this.EventQueue = eq;
 		s = new SuperMarket(rc, eq);
 		this.rc = rc;
 	}
+
 	/**
-	 * Starts up the simulation by creating a 
-	 * arrival event, then adds the closing and stop events to the queue.
+	 * Starts up the simulation by creating a arrival event, then adds the closing
+	 * and stop events to the queue.
 	 */
 	public void effect() {
 		((SuperMarket) s).viewUpdate(this);
 		EventQueue.addEvent(new ArrivalEvent(0, s, EventQueue));
 		EventQueue.addEvent(new ClosingEvent(((SuperMarket) s), rc.closingTime));
-		EventQueue.addEvent(new StopEvent(s, EventQueue,999));
+		EventQueue.addEvent(new StopEvent(s, EventQueue, 999));
 	}
+
 	/**
 	 * returns the string "Start"
 	 */
-	public String getName() { return "Start"; }
+	public String getName() {
+		return "Start";
+	}
 }

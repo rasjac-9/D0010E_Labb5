@@ -4,6 +4,7 @@ package Lab5.event;
 import Lab5.simulation.Event;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
+
 /**
  * Queues all event
  * 
@@ -22,7 +23,7 @@ public class EventQueue {
 	 * @param event
 	 */
 	public void addEvent(Event event) {
-		//System.out.println(event.getName()+ " " +event.time);
+		// System.out.println(event.getName()+ " " +event.time);
 		eventList.add(event);
 		sortEvent();
 	}
@@ -32,11 +33,12 @@ public class EventQueue {
 	 */
 	public Event getEvent() {
 		if (eventList.size() > 0) {
-		return eventList.get(0);
-	} else {
-		throw new NoSuchElementException();
+			return eventList.get(0);
+		} else {
+			throw new NoSuchElementException();
 		}
 	}
+
 	/**
 	 * Short the queue based on when the events are bound to happen
 	 */
@@ -49,7 +51,7 @@ public class EventQueue {
 			 * > 8) if (5 > 6) second loop: if (8 > 6) {swap place [3,5,6,8]}
 			 */
 			for (int i = 1; i < eventList.size(); i++) {
-				for (int j = 0; j < eventList.size()-1; j++) {
+				for (int j = 0; j < eventList.size() - 1; j++) {
 
 					if (eventList.get(j).time > eventList.get(i).time) {
 						Event eventIndexI = eventList.get(i);
@@ -71,12 +73,12 @@ public class EventQueue {
 		sortEvent();
 
 	}
-	
+
 	/**
 	 * @return true is queue is empty
 	 */
 	public boolean isEmpty() {
-		if(eventList.size() == 0) {
+		if (eventList.size() == 0) {
 			return true;
 		} else {
 			return false;

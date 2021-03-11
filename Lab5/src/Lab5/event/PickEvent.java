@@ -22,7 +22,6 @@ public class PickEvent extends Event {
 		s = sm;
 		time = ((SuperMarket) s).ts.getPickTime();
 
-
 	}
 
 	/**
@@ -30,7 +29,7 @@ public class PickEvent extends Event {
 	 */
 	public void effect() {
 		((SuperMarket) s).viewUpdate(this);
-		
+
 		try {
 			((SuperMarket) s).addToCashReg();
 			EventQueue.addEvent(new PayEvent(customerID, (SuperMarket) s));
@@ -38,13 +37,14 @@ public class PickEvent extends Event {
 			((SuperMarket) s).cashQueue.addToFIFO(this);
 		}
 	}
+
 	/**
 	 * special case of effect which is used when a event is pulled from the FIFO
 	 * queue, which gives the event a new execute time.
 	 */
 	public void effect(double t) {
 		time = t;
-		
+
 		try {
 			((SuperMarket) s).addToCashReg();
 			EventQueue.addEvent(new PayEvent(customerID, (SuperMarket) s));
@@ -60,8 +60,11 @@ public class PickEvent extends Event {
 	public int getCustomer() {
 		return customerID;
 	}
+
 	/**
 	 * Returns the name of the event.
 	 */
-	public String getName() { return "Plock"; }
+	public String getName() {
+		return "Plock";
+	}
 }
