@@ -1,3 +1,4 @@
+
 package Lab5.view;
 
 import Lab5.RunConfig;
@@ -10,6 +11,15 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Observable;
 
+/**
+ * Prints the events to the console
+ *
+ * @author Alex Bergdahl,
+ * @author Kim Eriksson,
+ * @author Peggy Khialie,
+ * @author Rasmus Jacobsen
+ *
+ */
 public class SuperMarketConsole extends View {
 
 	public SuperMarketConsole(RunConfig rc) {

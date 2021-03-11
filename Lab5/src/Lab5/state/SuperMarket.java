@@ -56,12 +56,12 @@ public class SuperMarket extends State {
 		this.view = rc.view;
 		this.addObserver(view);
 		this.closingTime = rc.closingTime;
-		
+
 		eventQueue = eq;
 		openForBis = true;
 		emptyReg = true;
 		inQueue = false;
-		
+
 		totalCustomers = 0;
 		lostCustomer = 0;
 		inStore = 0;
@@ -201,7 +201,6 @@ public class SuperMarket extends State {
 	public void viewUpdate(Event event) {
 		if (availableCashReg != 0) {
 			if (!openForBis && event.getName() == "Ankomst") {
-
 			} else {
 				regTime += (event.time - currentTime) * availableCashReg;
 			}
@@ -211,8 +210,8 @@ public class SuperMarket extends State {
 			queueTime += (event.time - currentTime) * cashQueue.getSize();
 		}
 		currentTime = event.time;
+		
 		if (!openForBis && event.getName() == "Ankomst") {
-
 		} else {
 			lastEventTime = event.time;
 		}
