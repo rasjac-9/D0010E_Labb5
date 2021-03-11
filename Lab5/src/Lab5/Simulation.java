@@ -21,7 +21,11 @@ public class Simulation {
 	public Event start;
 	public State s;
 
-	public Simulation(int[] args) {
+	public Simulation() {
+
+	}
+	
+	public State run(int[] args) {
 		eq = new EventQueue();
 		rc = new RunConfig(args);
 		
@@ -38,5 +42,7 @@ public class Simulation {
 				eq.removeEvent();
 			}
 		}
+		
+		return s;
 	}
 }

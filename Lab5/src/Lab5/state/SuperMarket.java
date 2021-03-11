@@ -210,7 +210,6 @@ public class SuperMarket extends State {
 			queueTime += (event.time - currentTime) * cashQueue.getSize();
 		}
 		currentTime = event.time;
-		
 		if (!openForBis && event.getName() == "Ankomst") {
 		} else {
 			lastEventTime = event.time;

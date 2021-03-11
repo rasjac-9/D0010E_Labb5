@@ -17,7 +17,6 @@ public double closingTime = 10.0;
 public double pMin = 0.5, pMax = 1.0;
 public double kMin = 2.0, kMax = 3.0;
 
-	
 	/*public int seed = 13;
 	
 	public int regLimit = 2;
