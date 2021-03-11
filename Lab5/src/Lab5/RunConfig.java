@@ -16,5 +16,9 @@ public class RunConfig {
 	public double pMin = 0.5, pMax = 1.0;
 	public double kMin = 2.0, kMax = 3.0;
 
-	public View view = new SuperMarketConsole();
+	public View view;
+	
+	public void addView() {
+		view = new SuperMarketConsole();
+	};
 }

@@ -22,9 +22,19 @@ public class Simulation {
 	public Event start;
 	public State s;
 
-	public Simulation() {
+	public Simulation(String[] args) {
+		if(args.length == 1) {
+			run(args[0]);
+		} else {
+			run();
+		}
+	}
+	
+	public void run() {
 		eq = new EventQueue();
 		rc = new RunConfig();
+		rc.addView();
+		
 		start = new StartEvent(eq, rc);
 		s = start.s;
 		eq.addEvent(start);
@@ -34,7 +44,22 @@ public class Simulation {
 				eq.getEvent().effect();
 				eq.removeEvent();
 			}
+		}
+	}
+	
+	public void run(String str) {
+		eq = new EventQueue();
+		rc = new RunConfig();
 		
+		start = new StartEvent(eq, rc);
+		s = start.s;
+		eq.addEvent(start);
+
+		while(!s.stop) {
+			if(!eq.isEmpty()) {
+				eq.getEvent().effect();
+				eq.removeEvent();
+			}
 		}
 	}
 }
