@@ -4,6 +4,7 @@ package Lab5;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 import static java.lang.Double.parseDouble;
@@ -15,10 +16,10 @@ public class Optimise {
 
 	Optimise() {
 		int[] str1 = {1234, 2, 5};
-		metod2(new RunConfig(str1));
+		opti(new RunConfig(str1));
 	}
 	/**
-	 * The class runs a simulation and stores
+	 * The method runs a simulation and stores
 	 * the output values of the simulation in
 	 * an array
 	 *
@@ -46,12 +47,23 @@ public class Optimise {
 		return values;
 	}
 
-	public void metod2(RunConfig rc) {
+
+	/**
+	 * The metod that finds the optimal amount
+	 * of registers depending on max customers
+	 * and lost customers
+	 *
+	 * @author Alex Bergdahl,
+	 * @author Kim Eriksson,
+	 * @author Peggy Khialie,
+	 * @author Rasmus Jacobsen
+	 *
+	 */
+	public int opti(RunConfig rc) {
 
 		int[] configs = {rc.seed, 1, rc.CLimit};
 		int Climit = 0;
 
-		ArrayList<Double> resultat = new ArrayList<>();
 		double lowest = Integer.MAX_VALUE;
 		for(int i = 1; i < rc.CLimit; i++) {
 			configs[1] = i;
@@ -61,10 +73,24 @@ public class Optimise {
 				lowest = values.get(0);
 				Climit = i;
 			} else {
-				i -= 1;
 				break;
 			}
 		}
-		System.out.println("Minsta antal kassor som ger minimalt antal missade ("+lowest+"): "+Climit);
+		int x = (int) Math.round(lowest);
+		//int [] k = {x,Climit};
+		//System.out.println("Minsta antal kassor som ger minimalt antal missade ("+x+"): "+Climit);
+		return Climit;
+	}
+
+	public metod3() {
+		Random rand = new Random();
+		int counter = 100;
+		while(counter > 0){
+			int[] x = {rand.nextInt(), 1, 5};
+			RunConfig rc = new RunConfig(x);
+
+			opti(rc);
+
+		}
 	}
 }
