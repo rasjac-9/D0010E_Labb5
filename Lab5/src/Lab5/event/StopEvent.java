@@ -28,7 +28,11 @@ public class StopEvent extends Event {
 		this.EventQueue = eq;
 		s = state;
 	}
-
+	/**
+	 * Checks if the store is open and the event is named stop.
+	 * if true it closes the store. otherwise it puts the event back
+	 * in the queue.
+	 */
 	public void effect() {
 		((SuperMarket) s).stopUpdate(this);
 		if (!((SuperMarket) s).getOpenForBis() && EventQueue.getEvent().getName() == "Stop") {
@@ -37,6 +41,8 @@ public class StopEvent extends Event {
 			EventQueue.addEvent(this);
 		}
 	}
-
+	/**
+	 * returns the string Stop
+	 */
 	public String getName() { return "Stop"; }
 }

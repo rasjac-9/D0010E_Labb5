@@ -27,6 +27,7 @@ public class PayEvent extends Event {
 
 	/**
 	 * Removes customer from store and checks if cash queue is empty
+	 * else get the first customer from the queue and make a pay event.
 	 */
 	public void effect() {
 		((SuperMarket) s).viewUpdate(this);
@@ -43,11 +44,13 @@ public class PayEvent extends Event {
 	}
 
 	/**
-	 * @return - int whit customerID
+	 * @return - int with customerID
 	 */
 	public int getCustomer() {
 		return customerID;
 	}
-
+	/**
+	 * returns the name of the event.
+	 */
 	public String getName() { return "Betalning"; }
 }

@@ -23,7 +23,11 @@ public class TimeState {
 	private double closingTime;
 
 	SuperMarket sm;
-
+	/**
+	 * Constructor takes the info and makes 3 diffrent random stream
+	 * of times, Used for Pick events, Shop events, arrival events.
+	 * @param s - SuperMarket Object
+	 */
 	public TimeState(SuperMarket s) {
 		sm = s;
 		ranStreamShop 	= new UniformRandomStream(s.kmin, s.kmax, s.seed);

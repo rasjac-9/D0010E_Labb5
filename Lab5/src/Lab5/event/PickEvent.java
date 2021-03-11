@@ -38,7 +38,10 @@ public class PickEvent extends Event {
 			((SuperMarket) s).cashQueue.addToFIFO(this);
 		}
 	}
-	
+	/**
+	 * special case of effect which is used when a event is pulled from the FIFO
+	 * queue, which gives the event a new execute time.
+	 */
 	public void effect(double t) {
 		time = t;
 		
@@ -57,6 +60,8 @@ public class PickEvent extends Event {
 	public int getCustomer() {
 		return customerID;
 	}
-
+	/**
+	 * Returns the name of the event.
+	 */
 	public String getName() { return "Plock"; }
 }
