@@ -91,11 +91,9 @@ public class Optimise implements K {
 			if(reg == oldReg) {
 				counter++;
 			} else if (oldReg < reg) {
-				//System.out.println(counter);
 				oldReg = reg;
 				counter = 0;
 			} else {
-				//System.out.println(counter);
 				oldReg = reg;
 				counter = 0;
 			}
