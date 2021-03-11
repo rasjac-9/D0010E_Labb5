@@ -43,26 +43,28 @@ public class Optimise {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		System.out.println(values);
 		return values;
 	}
 
 	public void metod2(RunConfig rc) {
 
-		int[] configs = {rc.seed, rc.regLimit, rc.CLimit};
+		int[] configs = {rc.seed, 1, rc.CLimit};
+		int Climit = 0;
 
 		ArrayList<Double> resultat = new ArrayList<>();
 		double lowest = Integer.MAX_VALUE;
 		for(int i = 1; i < rc.CLimit; i++) {
+			configs[1] = i;
 			ArrayList<Double> values = slutTillstånd(configs);
+
 			if(lowest > values.get(0)) {
 				lowest = values.get(0);
+				Climit = i;
 			} else {
 				i -= 1;
-				System.out.println("Minsta antal kassor som ger minimalt antal missade ("+lowest
-				+"): "+i);
 				break;
 			}
 		}
+		System.out.println("Minsta antal kassor som ger minimalt antal missade ("+lowest+"): "+Climit);
 	}
 }
