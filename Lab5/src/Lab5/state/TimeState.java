@@ -23,16 +23,18 @@ public class TimeState {
 	private double closingTime;
 
 	SuperMarket sm;
+
 	/**
-	 * Constructor takes the info and makes 3 diffrent random stream
-	 * of times, Used for Pick events, Shop events, arrival events.
+	 * Constructor takes the info and makes 3 diffrent random stream of times, Used
+	 * for Pick events, Shop events, arrival events.
+	 * 
 	 * @param s - SuperMarket Object
 	 */
 	public TimeState(SuperMarket s) {
 		sm = s;
-		ranStreamShop 	= new UniformRandomStream(s.kmin, s.kmax, s.seed);
-		ranStreamPick 	= new UniformRandomStream(s.pmin, s.pmax, s.seed);
-		expStream 		= new ExponentialRandomStream(s.lambda, s.seed);
+		ranStreamShop = new UniformRandomStream(s.kmin, s.kmax, s.seed);
+		ranStreamPick = new UniformRandomStream(s.pmin, s.pmax, s.seed);
+		expStream = new ExponentialRandomStream(s.lambda, s.seed);
 
 	}
 
@@ -41,7 +43,7 @@ public class TimeState {
 	 */
 	public void callClosingEvent() {
 		sm.eventQueue.addEvent(new ClosingEvent(sm, closingTime));
-		//ClosingEvent ce = new ClosingEvent(sm, closingTime);
+		// ClosingEvent ce = new ClosingEvent(sm, closingTime);
 	}
 
 	/**
@@ -64,5 +66,4 @@ public class TimeState {
 	public double getPickTime() {
 		return sm.currentTime + ranStreamPick.next();
 	}
-
 }

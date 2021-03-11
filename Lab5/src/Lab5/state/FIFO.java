@@ -19,7 +19,8 @@ import java.util.NoSuchElementException;
  */
 public class FIFO {
 	private ArrayList<Event> cashQueue = new ArrayList<Event>();
-    public int queueCounter = 0;
+	public int queueCounter = 0;
+
 	/**
 	 * Adds a event to the event list
 	 * 
@@ -35,16 +36,23 @@ public class FIFO {
 	 * 
 	 * @throws NoSuchElementException
 	 */
-	public void removeFirst() throws NoSuchElementException{
+	public void removeFirst() throws NoSuchElementException {
 		if (getSize() > 0) {
 			cashQueue.remove(0);
 		} else {
 			throw new NoSuchElementException();
 		}
 	}
+
+	/**
+	 * Returns the total number of people that have bin in the queue
+	 * 
+	 * @return int number of people in queue
+	 */
 	public int totalQueue() {
-		return queueCounter; 
+		return queueCounter;
 	}
+
 	/**
 	 * @return - true/false depending if the list is empty or not
 	 */
@@ -62,7 +70,7 @@ public class FIFO {
 	 * @return Event
 	 * @throws NoSuchElementException
 	 */
-	public Event getFirst() throws NoSuchElementException{
+	public Event getFirst() throws NoSuchElementException {
 		if (cashQueue.size() > 0) {
 			return cashQueue.get(0);
 		} else {
@@ -70,22 +78,24 @@ public class FIFO {
 		}
 
 	}
-/**
- * Returns the size of the array
- * 
- * @return
- */
 
-	public int getSize() { return cashQueue.size();}
+	/**
+	 * Returns the size of the array
+	 * 
+	 * @return
+	 */
+	public int getSize() {
+		return cashQueue.size();
+	}
 
 	/**
 	 * Returns a list of all the customerIDs in the array.
-	 * @return
+	 * 
+	 * @return - list of customer IDs
 	 */
-	
 	public ArrayList getQue() {
 		ArrayList<Integer> customerList = new ArrayList<>();
-		for(int i = 0; i < cashQueue.size(); i++) {
+		for (int i = 0; i < cashQueue.size(); i++) {
 			customerList.add(cashQueue.get(i).getCustomerID());
 		}
 		return customerList;
