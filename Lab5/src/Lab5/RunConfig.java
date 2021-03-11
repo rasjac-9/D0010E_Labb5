@@ -39,7 +39,7 @@ public class RunConfig {
 	
 	public void addView(boolean output) {
 		if(output) {
-			view = new SuperMarketConsole();
+			view = new SuperMarketConsole(this);
 		} else {
 			view = new SuperMarketFile();
 		}
