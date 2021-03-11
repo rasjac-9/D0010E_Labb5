@@ -39,6 +39,7 @@ public class Optimise implements K {
 			counter++;
 		}*/
 		Andrelina(SEED);
+		//opti(13);
 	}
 
 	
@@ -49,6 +50,7 @@ public class Optimise implements K {
 
 		int lol = ((SuperMarket) s).getLostCustomer();
 
+		//System.out.println(lol);
 		return lol;
 	}
 
@@ -70,6 +72,7 @@ public class Optimise implements K {
 			antReg = regs;
 		}
 		//System.out.println(antReg);
+		//System.out.println(antReg+" "+oldLost);
 		return antReg;
 	}
 
@@ -84,13 +87,16 @@ public class Optimise implements K {
 			int reg = opti(rand.nextInt());
 
 			//System.out.println(reg);
-			System.out.println(counter);
+			//System.out.println(counter);
 			if(reg == oldReg) {
 				counter++;
 			} else if (oldReg < reg) {
+				//System.out.println(counter);
 				oldReg = reg;
 				counter = 0;
 			} else {
+				//System.out.println(counter);
+				oldReg = reg;
 				counter = 0;
 			}
 		}
