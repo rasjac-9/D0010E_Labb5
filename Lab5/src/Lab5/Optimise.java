@@ -14,7 +14,7 @@ public class Optimise {
 	static String[] str2 = {"13", "2", "7", "3.0", "8.0", "0.6", "0.9", "0.35", "0.6", "false"};
 
 	Optimise() {
-		slutTillstånd();
+		//slutTillstånd();
 	}
 	/**
 	 * The class runs a simulation and stores
@@ -27,10 +27,10 @@ public class Optimise {
 	 * @author Rasmus Jacobsen
 	 *
 	 */
-	public ArrayList slutTillstånd() {
+	public ArrayList slutTillstånd(RunConfig rc) {
 
 		ArrayList<Double> values = new ArrayList<>();
-		new Simulation(str1);
+		//new Simulation(rc);
 
 		try {
 
@@ -46,10 +46,21 @@ public class Optimise {
 		return values;
 	}
 
-	public void metod2(String[] str) {
-		String[] str1 = {"1234", "2", "5", "1.0", "10.0", "0.5", "1.0", "2.0", "3.0", "false"};
-		for(int i = parseInt(str[2]); i > 0; i--) {
+	public void metod2(RunConfig rc) {
 
+		ArrayList<Double> resultat = new ArrayList<>();
+		double lowest = Integer.MAX_VALUE;
+		for(int i = 1; i > rc.CLimit; i++) {
+
+			ArrayList<Double> values = slutTillstånd(rc);
+
+			if(lowest > values.get(0)) {
+				lowest = values.get(0);
+			} else {
+				System.out.println("Minsta antal kassor som ger minimalt antal missade ("+lowest
+				+"): "i-1);
+				break;
+			}
 		}
 	}
 }
