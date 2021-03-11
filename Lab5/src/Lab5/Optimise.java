@@ -29,7 +29,7 @@ public class Optimise implements K {
 	 */
 	Optimise() {
 //		Andrelina(1234);
-		int[] str1 = { 1234, 2, 7 };
+		/*int[] str1 = { 1234, 2, 7 };
 		opti(str1[0]);
 		
 		int counter = 0;
@@ -37,7 +37,8 @@ public class Optimise implements K {
 		while(counter < 100) {
 			opti(rand.nextInt());
 			counter++;
-		}
+		}*/
+		Andrelina(SEED);
 	}
 
 	
@@ -54,21 +55,21 @@ public class Optimise implements K {
 	public int opti(int kuk) {
 		
 		int[] configs = {kuk, 1, 5};
-		int antReg;
-		int oldLost = kuk;
+		int antReg = 0;
+		int oldLost = Integer.MAX_VALUE;
 		int lost;
 
-		for (antReg = 1; antReg <= configs[2]; antReg++) {
-			configs[1] = antReg;
+		for (int regs = M; regs >= 1; regs--) {
+			configs[1] = regs;
 			lost = slutTillstånd(configs);
 
-			if (oldLost > lost) {
-				oldLost = lost;
-			} else if (oldLost == lost) {
+			if (lost > oldLost) {
 				break;
 			}
+			oldLost = lost;
+			antReg = regs;
 		}
-		System.out.println(antReg);
+		//System.out.println(antReg);
 		return antReg;
 	}
 
@@ -82,7 +83,8 @@ public class Optimise implements K {
 		while(counter < 100) {
 			int reg = opti(rand.nextInt());
 
-			System.out.println(reg);
+			//System.out.println(reg);
+			System.out.println(counter);
 			if(reg == oldReg) {
 				counter++;
 			} else if (oldReg < reg) {
