@@ -10,7 +10,7 @@ import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
 public class Optimise {
-	//static String[] str1 = {"1234", "2", "5", "1.0", "10.0", "0.5", "1.0", "2.0", "3.0", "false"};
+	static String[] str1 = {"1234", "2", "5", "1.0", "10.0", "0.5", "1.0", "2.0", "3.0", "false"};
 	static String[] str2 = {"13", "2", "7", "3.0", "8.0", "0.6", "0.9", "0.35", "0.6", "false"};
 
 	Optimise() {
@@ -30,6 +30,7 @@ public class Optimise {
 	public ArrayList slutTillstånd() {
 
 		ArrayList<Double> values = new ArrayList<>();
+		new Simulation(str1);
 
 		try {
 
