@@ -61,19 +61,24 @@ public class Optimise implements K {
 		int oldLost = Integer.MAX_VALUE;
 		int lost;
 
-		for (int regs = M; regs >= 1; regs--) {
+		for(int regs = M; regs >= 1; regs--) {
 			configs[1] = regs;
 			lost = slutTillstånd(configs);
 
-			if (lost > oldLost) {
-				break;
+			if (lost < oldLost) {
+				oldLost = lost;
 			}
-			oldLost = lost;
-			antReg = regs;
+		}
+
+		for(int i = 1; i <= M; i++) {
+			configs[1] = i;
+			if(oldLost == slutTillstånd(configs)) {
+				return i;
+			}
 		}
 		//System.out.println(antReg);
 		//System.out.println(antReg+" "+oldLost);
-		return antReg;
+		return -1;
 	}
 
 	// Andres är obetald praktikan på bolaget och det är hans uppgift att optimera
@@ -87,17 +92,16 @@ public class Optimise implements K {
 			int reg = opti(rand.nextInt());
 
 			//System.out.println(reg);
-			//System.out.println(counter);
+			System.out.println(counter);
 			if(reg == oldReg) {
 				counter++;
-			} else if (oldReg < reg) {
+			} else if (reg > oldReg) {
 				oldReg = reg;
 				counter = 0;
 			} else {
-				oldReg = reg;
-				counter = 0;
+				counter++;
 			}
 		}
-		System.out.println("DUN");
+		System.out.println(oldReg);
 	}
 }
