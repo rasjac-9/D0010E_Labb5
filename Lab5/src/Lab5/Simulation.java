@@ -25,12 +25,13 @@ public class Simulation {
 
 	}
 	
-	public State run(int[] args) {
+	public State run(int seed, int regLimit, int CLimit, double lambda, double closingTime, double pMin, double pMax,
+					 double kMin, double kMax, boolean output) {
 		eq = new EventQueue();
-		rc = new RunConfig(args);
+		rc = new RunConfig(seed, regLimit, CLimit, lambda, closingTime, pMin, pMax,
+		kMin, kMax, output);
 		
 		//TODO: Change to false if you want to stop console prints
-		rc.addView(false);
 		
 		start = new StartEvent(eq, rc);
 		s = start.s;

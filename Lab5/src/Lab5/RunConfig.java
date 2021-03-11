@@ -6,6 +6,7 @@ import Lab5.view.SuperMarketConsole;
 import Lab5.view.SuperMarketFile;
 
 public class RunConfig {
+
 public int seed = 1234;
 
 public int regLimit = 2;
@@ -17,7 +18,23 @@ public double closingTime = 10.0;
 public double pMin = 0.5, pMax = 1.0;
 public double kMin = 2.0, kMax = 3.0;
 
-	/*public int seed = 13;
+public boolean output;
+
+	public RunConfig(int seed, int regLimit, int CLimit, double lambda, double closingTime, double pMin, double pMax,
+					 double kMin, double kMax, boolean output) {
+		this.seed = seed;
+		this.regLimit = regLimit;
+		this.CLimit = CLimit;
+		this.lambda = lambda;
+		this.closingTime = closingTime;
+		this.pMax = pMax;
+		this.pMin = pMin;
+		this.kMin = kMin;
+		this.kMax = kMax;
+		this.output = output;
+	}
+
+/*	*//*public int seed = 13;
 	
 	public int regLimit = 2;
 	public int CLimit = 7;
@@ -26,7 +43,7 @@ public double kMin = 2.0, kMax = 3.0;
 	public double closingTime = 8.0;
 	
 	public double pMin = 0.6, pMax = 0.9;
-	public double kMin = 0.35, kMax = 0.6;*/
+	public double kMin = 0.35, kMax = 0.6;*//*
 
 	
 	
@@ -45,5 +62,5 @@ public double kMin = 2.0, kMax = 3.0;
 		} else {
 			view = new SuperMarketFile();
 		}
-	}
+	}*/
 }

@@ -13,7 +13,7 @@ import java.util.Random;
 //import static java.lang.Double.parseDouble;
 //import static java.lang.Integer.parseInt;
 
-public class Optimise {
+public class Optimise implements K {
 	static String[] str1 = { "1234", "2", "5", "1.0", "10.0", "0.5", "1.0", "2.0", "3.0", "false" };
 	static String[] str2 = { "13", "2", "7", "3.0", "8.0", "0.6", "0.9", "0.35", "0.6", "false" };
 
@@ -43,8 +43,8 @@ public class Optimise {
 	
 	public int slutTillstånd(int[] args) {
 		Simulation nice = new Simulation();
-		State s = new State();
-		s = nice.run(args);
+		State s = nice.run(args[0], args[1], M, L, END_TIME, LOW_COLLECTION_TIME,
+				HIGH_COLLECTION_TIME, LOW_PAYMENT_TIME, HIGH_PAYMENT_TIME, false);
 
 		int lol = ((SuperMarket) s).getLostCustomer();
 

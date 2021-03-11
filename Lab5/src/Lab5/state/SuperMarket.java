@@ -6,6 +6,8 @@ import Lab5.event.EventQueue;
 import Lab5.simulation.Event;
 import Lab5.simulation.State;
 import Lab5.simulation.View;
+import Lab5.view.SuperMarketConsole;
+import Lab5.view.SuperMarketFile;
 
 /**
  * Description
@@ -53,8 +55,6 @@ public class SuperMarket extends State {
 		availableCashReg = rc.regLimit;
 		customerLimit = rc.CLimit;
 
-		this.view = rc.view;
-		this.addObserver(view);
 		this.closingTime = rc.closingTime;
 
 		eventQueue = eq;
@@ -67,6 +67,13 @@ public class SuperMarket extends State {
 		inStore = 0;
 
 		ts = new TimeState(this);
+
+		if(rc.output) {
+			this.view = new SuperMarketConsole(rc);
+		} else {
+			this.view = new View();
+		}
+		this.addObserver(view);
 	}
 
 	/**
