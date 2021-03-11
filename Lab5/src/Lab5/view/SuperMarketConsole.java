@@ -18,8 +18,8 @@ public class SuperMarketConsole extends View {
 				+ "\nPlocktider, [P_min..Pmax]: [" + rc.pMin + ".." + rc.pMax + "]\nBetaltider, [K_min..Kmax]: ["
 				+ rc.kMin + ".." + rc.kMax + "]\nFrö, f...................: " + rc.seed);
 
-		System.out.println("Tid\t" + "Händelse\t" + "Kund\t" + "?\t" + "led\t" + "ledT\t" + "I\t" + "$\t" + ":-(\t"
-				+ "köat\t" + "köT\t" + "köar\t" + "[Kassakö..]");
+		System.out.println("\nFörlopp\n=======\nTid\t" + "Händelse\t" + "Kund\t" + "?\t" + "led\t" + "ledT\t" + "I\t"
+				+ "$\t" + ":-(\t" + "köat\t" + "köT\t" + "köar\t" + "[Kassakö..]");
 	}
 
 	@Override
