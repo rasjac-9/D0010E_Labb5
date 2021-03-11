@@ -70,10 +70,19 @@ public class FIFO {
 		}
 
 	}
-
+/**
+ * Returns the size of the array
+ * 
+ * @return
+ */
 
 	public int getSize() { return cashQueue.size();}
 
+	/**
+	 * Returns a list of all the customerIDs in the array.
+	 * @return
+	 */
+	
 	public ArrayList getQue() {
 		ArrayList<Integer> customerList = new ArrayList<>();
 		for(int i = 0; i < cashQueue.size(); i++) {

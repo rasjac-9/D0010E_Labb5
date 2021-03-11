@@ -46,21 +46,20 @@ public class SuperMarket extends State {
 		this.closingTime = rc.closingTime;
 		this.regTime 	= 0.0;
 		this.queueTime 	= 0.0;
-		
 		cashQueue = new FIFO();
 		cashRegLimit = rc.regLimit;
 		availableCashReg = rc.regLimit;
 		customerLimit = rc.CLimit;
-		
 		this.view = rc.view;
 		this.addObserver(view);
 		this.closingTime = rc.closingTime;
-		
 		eventQueue = eq;
 		openForBis = true;
 		emptyReg = true;
 		inQueue = false;
 		totalCustomers = 0;
+
+		//occupiedCashReg = 0;
 
 		lostCustomer = 0;
 		inStore = 0;
@@ -143,21 +142,44 @@ public class SuperMarket extends State {
 	public boolean getOpenForBis() {
 		return openForBis;
 	}
-
+	/**
+	 * Returns the amount of people in the store currently.
+	 * @return
+	 */
 	public int getCustomers() {
 		return inStore;
 	}
-
+	/**
+	 * Returns the amount of people that have successfully paid.
+	 * @return
+	 */
 	public int getShopped() {
 		return shopped;
 	}
-
+	/**
+	 * returns the amount of missed customers if the store is full.
+	 * @return
+	 */
 	public int getLostCustomer() { return lostCustomer;}
-
+	/**
+	 * Returns the total amount of people that tried to shop.
+	 * @return
+	 */
 	public int getTotalCustomers() { return totalCustomers; }
 
+	/**
+	 * Returns the amount of cash registers in the store.
+	 * @return
+	 */
 	public int getMaxRegs() { return cashRegLimit; }
 
+	/**
+	 * Update method that updates the time available cash registers has
+	 * been empty. It updates the total queue time of all customers. 
+	 * Updates the current time and then notifies the observes. This
+	 * method is called before every event happens.
+	 * @param event
+	 */
 	public void viewUpdate(Event event) {
 		if(availableCashReg != 0) {
 			regTime += (event.time - currentTime)*availableCashReg;
