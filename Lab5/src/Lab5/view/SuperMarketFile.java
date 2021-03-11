@@ -32,7 +32,7 @@ public class SuperMarketFile extends View {
 
             try {
                 PrintWriter writer = new PrintWriter("optimization.txt");
-                writer.write(String.valueOf(currentTime)+"\n"+regTime+"\n"+
+                writer.write(superMarket.getLostCustomer()+"\n"+currentTime+"\n"+regTime+"\n"+
                         superMarket.cashQueue.queueCounter+"\n"+queueTime);
                 writer.close();
             } catch (IOException e) {

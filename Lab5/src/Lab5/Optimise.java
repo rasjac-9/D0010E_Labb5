@@ -7,13 +7,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.Double.parseDouble;
+import static java.lang.Integer.parseInt;
 
 public class Optimise {
-	static String[] str1 = {"1234", "2", "5", "1.0", "10.0", "0.5", "1.0", "2.0", "3.0", "false"};
+	//static String[] str1 = {"1234", "2", "5", "1.0", "10.0", "0.5", "1.0", "2.0", "3.0", "false"};
 	static String[] str2 = {"13", "2", "7", "3.0", "8.0", "0.6", "0.9", "0.35", "0.6", "false"};
 
 	Optimise() {
-		method1();
+		slutTillstånd();
 	}
 	/**
 	 * The class runs a simulation and stores
@@ -26,9 +27,8 @@ public class Optimise {
 	 * @author Rasmus Jacobsen
 	 *
 	 */
-	public ArrayList method1() {
+	public ArrayList slutTillstånd() {
 
-		new Simulation(str1);
 		ArrayList<Double> values = new ArrayList<>();
 
 		try {
@@ -37,11 +37,18 @@ public class Optimise {
 			Scanner reader = new Scanner(file);
 			while (reader.hasNextLine()) {
 				values.add(parseDouble(reader.nextLine()));
-
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		System.out.println(values);
 		return values;
+	}
+
+	public void metod2(String[] str) {
+		String[] str1 = {"1234", "2", "5", "1.0", "10.0", "0.5", "1.0", "2.0", "3.0", "false"};
+		for(int i = 0; i < parseInt(str[2]); i++) {
+
+		}
 	}
 }
