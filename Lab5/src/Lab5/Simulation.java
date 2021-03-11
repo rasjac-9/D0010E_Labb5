@@ -4,7 +4,6 @@ package Lab5;
 import Lab5.simulation.State;
 import Lab5.simulation.Event;
 import Lab5.event.*;
-import Lab5.state.*;
 
 /**
  * Runs a simulation
@@ -23,7 +22,7 @@ public class Simulation {
 	public State s;
 
 	public Simulation(String[] args) {
-		if(args.length == 1) {
+		if(args.length >= 1) {
 			run(args);
 		} else {
 			run();
