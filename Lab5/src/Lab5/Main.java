@@ -6,7 +6,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		new Optimise();
+		//new Optimise();
 		
 		/*
 		if(args.length==0) {

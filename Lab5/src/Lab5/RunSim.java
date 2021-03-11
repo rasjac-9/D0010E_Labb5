@@ -6,7 +6,7 @@ public class RunSim {
 	static int[] str2 = {13, 2, 7};
 	
 	public static void main(String[] args) {
-		if (args[0].equals("1")) {
+		if (args.length == 0) {
 			Simulation sim = new Simulation(str1);
 		} else {
 			Simulation sim = new Simulation(str2);
