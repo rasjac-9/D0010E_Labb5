@@ -45,7 +45,7 @@ public class ArrivalEvent extends Event {
 		} else if (((SuperMarket) s).getOpenForBis() && !((SuperMarket) s).addCustomer()) {
 
 			((SuperMarket) s).lostCustomer();
-			EventQueue.addEvent(new ArrivalEvent(customerID, s, EventQueue));
+			EventQueue.addEvent(new ArrivalEvent(customerID + 1, s, EventQueue));
 		}
 
 	}
