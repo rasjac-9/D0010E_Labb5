@@ -21,10 +21,13 @@ public class Simulation {
 	public Event start;
 	public State s;
 
-	public Simulation(String[] args) {
+	public Simulation(int[] args) {
 		eq = new EventQueue();
 		rc = new RunConfig(args);
-
+		
+		//TODO: Change to false if you want to stop console prints
+		rc.addView(true);
+		
 		start = new StartEvent(eq, rc);
 		s = start.s;
 		eq.addEvent(start);
