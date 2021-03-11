@@ -24,7 +24,7 @@ public class Simulation {
 
 	public Simulation(String[] args) {
 		if(args.length == 1) {
-			run(args[0]);
+			run(args);
 		} else {
 			run();
 		}
@@ -32,7 +32,7 @@ public class Simulation {
 	
 	public void run() {
 		eq = new EventQueue();
-		rc = new RunConfig();
+		rc = new RunConfig(null);
 		rc.addView(false);
 		
 		start = new StartEvent(eq, rc);
@@ -47,9 +47,9 @@ public class Simulation {
 		}
 	}
 	
-	public void run(String str) {
+	public void run(String[] str) {
 		eq = new EventQueue();
-		rc = new RunConfig();
+		rc = new RunConfig(str);
 		
 		start = new StartEvent(eq, rc);
 		s = start.s;
