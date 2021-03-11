@@ -29,10 +29,10 @@ public class SuperMarketConsole extends View {
 		BigDecimal queueTime = new BigDecimal(superMarket.queueTime).setScale(2, RoundingMode.HALF_UP);
 
 		if (event.getName() == "Start") {
-			System.out.println(event.time + "\t" + event.getName());
+			System.out.println(currentTime + "\t" + event.getName());
 		}
 		else if (event.getName() == "Stop") {
-			System.out.println(event.time + "\t" + event.getName());
+			System.out.println(currentTime + "\t" + event.getName());
 		}
 		else if (event.getName() == "Stänger") {
 			System.out.println(currentTime + "\t" + event.getName() + "       ---\t"
