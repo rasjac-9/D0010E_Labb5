@@ -33,7 +33,7 @@ public class Event {
 	public void addToEvent() {
 	}
 
-	/**S
+	/**
 	 * @return string whit event name
 	 */
 	public String getName() {
