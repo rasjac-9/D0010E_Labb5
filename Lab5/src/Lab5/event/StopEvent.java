@@ -30,7 +30,7 @@ public class StopEvent extends Event {
 	}
 
 	public void effect() {
-		((SuperMarket) s).viewUpdate(this);
+		((SuperMarket) s).stopUpdate(this);
 		if (!((SuperMarket) s).getOpenForBis() && EventQueue.getEvent().getName() == "Stop") {
 			s.stop = true;
 		} else {

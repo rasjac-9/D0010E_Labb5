@@ -32,7 +32,31 @@ public class SuperMarketConsole extends View {
 			System.out.println(currentTime + "\t" + event.getName());
 		}
 		else if (event.getName() == "Stop") {
+
+			BigDecimal avgRegTime = new BigDecimal(superMarket.regTime/superMarket.cashRegLimit)
+					.setScale(2, RoundingMode.HALF_UP);
+
+			BigDecimal avgInPerc = new BigDecimal(((superMarket.regTime/superMarket.cashRegLimit)
+					/superMarket.lastEventTime)*100).setScale(2, RoundingMode.HALF_UP);
+
+			BigDecimal avgQueueTime = new BigDecimal(superMarket.queueTime/superMarket.cashQueue.queueCounter)
+					.setScale(2, RoundingMode.HALF_UP);
+
 			System.out.println(currentTime + "\t" + event.getName());
+
+			System.out.println("\n"+"RESULTAT\n========");
+
+			int allCustomers = superMarket.getTotalCustomers() + superMarket.getLostCustomer();
+			System.out.println("\n1)\tAv " + allCustomers + " kunder handlade " + superMarket.getTotalCustomers()
+			+ " medan " + superMarket.getLostCustomer() +" missades.");
+
+			System.out.println("\n2)\tTotal tid " + superMarket.getMaxRegs() + " kassor varit " +
+			"lediga: "+regTime+" te."+"\n\tGenomsnittlig ledig kassatid: "+ avgRegTime + " te (dvs "
+			+ avgInPerc + "% av tiden från öppning tills sita kunden betalat)");
+
+			System.out.println("\n3)\tTotal tid " + superMarket.cashQueue.queueCounter
+			+ " kunder tvingats köa: " + queueTime + " te.\n\tGenomsnittlig kötid: "
+			+ avgQueueTime + " te.");
 		}
 		else if (event.getName() == "Stänger") {
 			System.out.println(currentTime + "\t" + event.getName() + "       ---\t"

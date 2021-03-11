@@ -20,11 +20,12 @@ public class SuperMarket extends State {
 
 	boolean openForBis, emptyReg, inQueue;
 
-	int occupiedCashReg, lostCustomer, inStore, seed, shopped, availableCashReg;
+	int occupiedCashReg, lostCustomer, inStore, seed, shopped, availableCashReg, totalCustomers;
 	double lambda, closingTime, kmax, kmin, pmin, pmax;
 
-	final int cashRegLimit;
+	public final int cashRegLimit;
 	final int customerLimit;
+	public double lastEventTime;
 	public double regTime;
 	public double queueTime;
 	public TimeState ts;
@@ -56,6 +57,7 @@ public class SuperMarket extends State {
 		openForBis = true;
 		emptyReg = true;
 		inQueue = false;
+		totalCustomers = 0;
 
 		//occupiedCashReg = 0;
 
@@ -74,6 +76,7 @@ public class SuperMarket extends State {
 		if (inStore == customerLimit) {
 			return false;
 		} else {
+			totalCustomers += 1;
 			inStore += 1;
 			return true;
 		}
@@ -150,6 +153,10 @@ public class SuperMarket extends State {
 
 	public int getLostCustomer() { return lostCustomer;}
 
+	public int getTotalCustomers() { return totalCustomers; }
+
+	public int getMaxRegs() { return cashRegLimit; }
+
 	public void viewUpdate(Event event) {
 		if(availableCashReg != 0) {
 			regTime += (event.time - currentTime)*availableCashReg;
@@ -158,6 +165,13 @@ public class SuperMarket extends State {
 			queueTime += (event.time - currentTime)*cashQueue.getSize();
 		}
 		currentTime = event.time;
+		lastEventTime = event.time;
+		setChanged();
+		notifyObservers(event);
+	}
+
+	// specific viewUpdate for stopEvent
+	public void stopUpdate(Event event) {
 		setChanged();
 		notifyObservers(event);
 	}
