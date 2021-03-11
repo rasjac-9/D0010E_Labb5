@@ -36,8 +36,8 @@ public class RunConfig {
 	
 	public RunConfig(int[] args) {
 		seed = args[0];
-		regLimit = args[0];
-		CLimit = args[0];
+		regLimit = args[1];
+		CLimit = args[2];
 	}
 	
 	public void addView(boolean output) {

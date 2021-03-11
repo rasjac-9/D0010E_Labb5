@@ -26,7 +26,7 @@ public class SuperMarketConsole extends View {
 	public void update(Observable o, Object arg) {
 		DecimalFormat df2 = new DecimalFormat("#.##");
 		df2.setRoundingMode(RoundingMode.UP);
-
+		
 		Event event = (Event) arg;
 		SuperMarket superMarket = (SuperMarket) event.s;
 

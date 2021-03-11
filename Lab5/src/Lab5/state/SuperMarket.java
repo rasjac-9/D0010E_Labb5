@@ -194,7 +194,7 @@ public class SuperMarket extends State {
 	}
 
 	// specific viewUpdate for stopEvent
-	public void stopUpdate(Event event) {
+	public void stopUpdate(Event event) { 
 		setChanged();
 		notifyObservers(event);
 	}

@@ -24,7 +24,7 @@ public class StopEvent extends Event {
 	 */
 	public EventQueue eq;
 	StopEvent(State state, EventQueue eq, double time) {
-		this.time = time;
+		this.time = time; 
 		this.EventQueue = eq;
 		s = state;
 	}
