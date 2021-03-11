@@ -33,7 +33,7 @@ public class Simulation {
 	public void run() {
 		eq = new EventQueue();
 		rc = new RunConfig();
-		rc.addView();
+		rc.addView(false);
 		
 		start = new StartEvent(eq, rc);
 		s = start.s;
