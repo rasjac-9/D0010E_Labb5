@@ -7,9 +7,9 @@ import java.util.Observable;
 /**
  * Creates a abstract state
  * 
- * @author Alex Bergdahl, 
- * @author Kim Eriksson, 
- * @author Peggy Khialie, 
+ * @author Alex Bergdahl,
+ * @author Kim Eriksson,
+ * @author Peggy Khialie,
  * @author Rasmus Jacobsen
  *
  */
