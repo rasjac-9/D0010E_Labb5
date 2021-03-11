@@ -182,7 +182,12 @@ public class SuperMarket extends State {
 	 */
 	public void viewUpdate(Event event) {
 		if(availableCashReg != 0) {
-			regTime += (event.time - currentTime)*availableCashReg;
+			if(!openForBis && event.getName() == "Ankomst") {
+				
+			} else {
+				regTime += (event.time - currentTime)*availableCashReg;
+			}
+			
 		}
 		if(!cashQueue.isEmpty()) {
 			queueTime += (event.time - currentTime)*cashQueue.getSize();
