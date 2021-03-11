@@ -47,7 +47,7 @@ public class Optimise {
 
 	public void metod2(String[] str) {
 		String[] str1 = {"1234", "2", "5", "1.0", "10.0", "0.5", "1.0", "2.0", "3.0", "false"};
-		for(int i = 0; i < parseInt(str[2]); i++) {
+		for(int i = parseInt(str[2]); i > 0; i--) {
 
 		}
 	}
