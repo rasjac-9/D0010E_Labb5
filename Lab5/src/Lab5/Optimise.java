@@ -54,40 +54,47 @@ public class Optimise implements K {
 	 
 	 for (int reg = M; reg >= 1; reg--) {
 		 state = Ett(seed,reg);
+		 
 		 if (state.getLostCustomer() > missC) {
 			 bestreg = reg;
 			 break;
 		 }
 		 missC = state.getLostCustomer();
 		 bestreg = reg;
+		 testTvå(missC, bestreg);
 	 }
 	 return bestreg;
 	 }
 
 	// Andres är obetald praktikan på bolaget och det är hans uppgift att optimera
 	// butikerna
-	public void Tre(int seed) {
+	public int Tre(int seed) {
 	Random random = new Random(seed);
 	int counter = 0;
-	int bra = 0;
-	int varv = 1;
+	int worstReg = 0;
+
 	
 	while (true) {
-		int temp = Två(random.nextInt());
-		System.out.println(temp+"       "+ "Counter: "+ counter);
-		if (temp > bra) {
+		int twoReg = Två(random.nextInt());
+		if (twoReg > worstReg) {
 			counter = 0;
-			bra = temp;
+			worstReg = twoReg;
 		} else {
 			counter ++;
+//			testTre(counter,worstReg);
 		} 
 		if (counter == 100) {
 			break;
 		}
-		
-		varv++;
-
 	}
-	System.out.println("ANTAL KASSOR: "+ bra + "," + "  " + "ANTAL VARV: " + varv);
+
+	return worstReg;
 }
+	private void testTre(int a,int b) {
+		System.out.println("Counter: " + a +"      " + "Best amount of cash registers:  " + b);
+	}
+	private void testTvå(int a, int b) {
+		System.out.println("Missed customers: " + a+"            "+ "Amount of cash regs"+ b);
+	}
+	
 }
