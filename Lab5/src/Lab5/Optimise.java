@@ -32,8 +32,8 @@ public class Optimise implements K {
 	 *
 	 */
 	Optimise() {
-		//Tre(SEED);
-		 Två(SEED);
+		Tre(SEED);
+		// Två(SEED);
 		// Ett(SEED,14);
 
 	}
@@ -49,20 +49,23 @@ public class Optimise implements K {
 
 	public int Två(int seed) {
 		State state;
+		State state2;
 		int cust = 0;
 		int bestreg = 0;
 
 		for (int reg = 1; reg < M; reg++) {
 			state = Ett(seed, reg);
-			if (state.getLostCustomer() > Ett(seed, reg + 1).getLostCustomer()) {
+			cust = state.getLostCustomer();
+			testTvå(cust);
+			
+			state2 = Ett(seed, reg+1);
+			if (state.getLostCustomer() > state2.getLostCustomer()) {
 				bestreg = reg;
-			} else if (state.getLostCustomer() == Ett(seed, reg + 1).getLostCustomer()) {
+			} else if (state.getLostCustomer() == state2.getLostCustomer()) {
 				bestreg = reg;
-				cust = state.getLostCustomer();
 				break;
 			}
 		}
-		testTvå(cust);
 		return bestreg;
 	}
 
@@ -75,8 +78,8 @@ public class Optimise implements K {
 
 		while (true) {
 			int twoReg = Två(random.nextInt());
-//			testTre(counter + 1, twoReg);
 			if (twoReg > worstReg) {
+				testTre(counter, worstReg);
 				counter = 0;
 				worstReg = twoReg;
 			} else {
