@@ -81,7 +81,7 @@ public class Optimise implements K {
 		} else {
 			counter ++;
 		} 
-		if (counter == 99) {
+		if (counter == 100) {
 			break;
 		}
 		
