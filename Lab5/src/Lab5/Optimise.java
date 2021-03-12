@@ -14,9 +14,12 @@ import java.util.Random;
 //import static java.lang.Integer.parseInt;
 
 public class Optimise implements K {
-	static String[] str1 = { "1234", "2", "5", "1.0", "10.0", "0.5", "1.0", "2.0", "3.0", "false" };
-	static String[] str2 = { "13", "2", "7", "3.0", "8.0", "0.6", "0.9", "0.35", "0.6", "false" };
+//	static String[] str1 = { "1234", "2", "5", "1.0", "10.0", "0.5", "1.0", "2.0", "3.0", "false" };
+//	static String[] str2 = { "13", "2", "7", "3.0", "8.0", "0.6", "0.9", "0.35", "0.6", "false" };
+	public static void main(String[] args) {
+	//System.out.println(Två(1234));
 
+	}
 	/**
 	 * The method runs a simulation and stores the output values of the simulation
 	 * in an array
@@ -28,80 +31,63 @@ public class Optimise implements K {
 	 *
 	 */
 	Optimise() {
-//		Andrelina(1234);
-		/*int[] str1 = { 1234, 2, 7 };
-		opti(str1[0]);
-		
-		int counter = 0;
-		Random rand = new Random(1234);
-		while(counter < 100) {
-			opti(rand.nextInt());
-			counter++;
-		}*/
-		Andrelina(SEED);
-		//opti(13);
+     Tre(SEED);
+     
+			
+
 	}
 
 	
-	public int slutTillstånd(int[] args) {
+	public  State Ett(int a,int b) {
+
 		Simulation nice = new Simulation();
-		State s = nice.run(args[0], args[1], M, L, END_TIME, LOW_COLLECTION_TIME,
+		State s = nice.run(a, b, M, L, END_TIME, LOW_COLLECTION_TIME,
 				HIGH_COLLECTION_TIME, LOW_PAYMENT_TIME, HIGH_PAYMENT_TIME, false);
+		return s;
 
-		int lol = ((SuperMarket) s).getLostCustomer();
-
-		//System.out.println(lol);
-		return lol;
 	}
 
-	public int opti(int kuk) {
-		
-		int[] configs = {kuk, 1, 5};
-		int antReg = 0;
-		int oldLost = Integer.MAX_VALUE;
-		int lost;
-
-		for(int regs = M; regs >= 1; regs--) {
-			configs[1] = regs;
-			lost = slutTillstånd(configs);
-
-			if (lost < oldLost) {
-				oldLost = lost;
-			}
-		}
-
-		for(int i = 1; i <= M; i++) {
-			configs[1] = i;
-			if(oldLost == slutTillstånd(configs)) {
-				return i;
-			}
-		}
-		//System.out.println(antReg);
-		//System.out.println(antReg+" "+oldLost);
-		return -1;
-	}
+	 public  int Två(int seed) {
+	 State state;
+	 int missC = 100000;
+	 int bestreg = 0;
+	 
+	 for (int reg = M; reg >= 1; reg--) {
+		 state = Ett(seed,reg);
+		 if (state.getLostCustomer() > missC) {
+			 bestreg = reg;
+			 break;
+		 }
+		 missC = state.getLostCustomer();
+		 bestreg = reg;
+	 }
+	 return bestreg;
+	 }
 
 	// Andres är obetald praktikan på bolaget och det är hans uppgift att optimera
 	// butikerna
-	public void Andrelina(int seed) {
-		Random rand = new Random(seed);
-		int oldReg = 0;
-		int counter = 0;
-		
-		while(counter < 100) {
-			int reg = opti(rand.nextInt());
-
-			//System.out.println(reg);
-			System.out.println(counter);
-			if(reg == oldReg) {
-				counter++;
-			} else if (reg > oldReg) {
-				oldReg = reg;
-				counter = 0;
-			} else {
-				counter++;
-			}
+	public void Tre(int seed) {
+	Random random = new Random(seed);
+	int counter = 0;
+	int bra = 0;
+	int varv = 1;
+	
+	while (true) {
+		int temp = Två(random.nextInt());
+		System.out.println(temp+"       "+ "Counter: "+ counter);
+		if (temp > bra) {
+			counter = 0;
+			bra = temp;
+		} else {
+			counter ++;
+		} 
+		if (counter == 99) {
+			break;
 		}
-		System.out.println(oldReg);
+		
+		varv++;
+
 	}
+	System.out.println("ANTAL KASSOR: "+ bra + "," + "  " + "ANTAL VARV: " + varv);
+}
 }

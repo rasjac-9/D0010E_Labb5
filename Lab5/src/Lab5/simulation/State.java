@@ -18,4 +18,8 @@ public class State extends Observable {
 	public double currentTime = 0;
 	public EventQueue eventQueue;
 	public View view;
+	public int LostCustomer;
+	public int getLostCustomer() {
+		return LostCustomer;
+	}
 }
