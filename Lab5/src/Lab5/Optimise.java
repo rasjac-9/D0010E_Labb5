@@ -17,9 +17,10 @@ public class Optimise implements K {
 //	static String[] str1 = { "1234", "2", "5", "1.0", "10.0", "0.5", "1.0", "2.0", "3.0", "false" };
 //	static String[] str2 = { "13", "2", "7", "3.0", "8.0", "0.6", "0.9", "0.35", "0.6", "false" };
 	public static void main(String[] args) {
-	//System.out.println(Två(1234));
+		// System.out.println(Två(1234));
 
 	}
+
 	/**
 	 * The method runs a simulation and stores the output values of the simulation
 	 * in an array
@@ -31,70 +32,73 @@ public class Optimise implements K {
 	 *
 	 */
 	Optimise() {
-     Tre(SEED);
-     
-			
+		//Tre(SEED);
+		 Två(SEED);
+		// Ett(SEED,14);
 
 	}
 
-	
-	public  State Ett(int a,int b) {
+	public State Ett(int a, int b) {
 
 		Simulation nice = new Simulation();
-		State s = nice.run(a, b, M, L, END_TIME, LOW_COLLECTION_TIME,
-				HIGH_COLLECTION_TIME, LOW_PAYMENT_TIME, HIGH_PAYMENT_TIME, false);
+		State s = nice.run(a, b, M, L, END_TIME, LOW_COLLECTION_TIME, HIGH_COLLECTION_TIME, LOW_PAYMENT_TIME,
+				HIGH_PAYMENT_TIME, false);
 		return s;
 
 	}
 
-	 public  int Två(int seed) {
-	 State state;
-	 int missC = 100000;
-	 int bestreg = 0;
-	 
-	 for (int reg = M; reg >= 1; reg--) {
-		 state = Ett(seed,reg);
-		 
-		 if (state.getLostCustomer() > missC) {
-			 bestreg = reg;
-			 break;
-		 }
-		 missC = state.getLostCustomer();
-		 bestreg = reg;
-		 testTvå(missC, bestreg);
-	 }
-	 return bestreg;
-	 }
+	public int Två(int seed) {
+		State state;
+		int cust = 0;
+		int bestreg = 0;
+
+		for (int reg = 1; reg < M; reg++) {
+			state = Ett(seed, reg);
+			if (state.getLostCustomer() > Ett(seed, reg + 1).getLostCustomer()) {
+				bestreg = reg;
+			} else if (state.getLostCustomer() == Ett(seed, reg + 1).getLostCustomer()) {
+				bestreg = reg;
+				cust = state.getLostCustomer();
+				break;
+			}
+		}
+		testTvå(cust);
+		return bestreg;
+	}
 
 	// Andres är obetald praktikan på bolaget och det är hans uppgift att optimera
 	// butikerna
 	public int Tre(int seed) {
-	Random random = new Random(seed);
-	int counter = 0;
-	int worstReg = 0;
+		Random random = new Random(seed);
+		int counter = 0;
+		int worstReg = 0;
 
-	
-	while (true) {
-		int twoReg = Två(random.nextInt());
-		if (twoReg > worstReg) {
-			counter = 0;
-			worstReg = twoReg;
-		} else {
-			counter ++;
-//			testTre(counter,worstReg);
-		} 
-		if (counter == 100) {
-			break;
+		while (true) {
+			int twoReg = Två(random.nextInt());
+//			testTre(counter + 1, twoReg);
+			if (twoReg > worstReg) {
+				counter = 0;
+				worstReg = twoReg;
+			} else {
+				counter++;
+			}
+			if (counter == 100) {
+				break;
+			}
 		}
+		testTre(counter, worstReg);
+		return worstReg;
 	}
 
-	return worstReg;
-}
-	private void testTre(int a,int b) {
-		System.out.println("Counter: " + a +"      " + "Best amount of cash registers:  " + b);
+	private void testTre(int a, int b) {
+		System.out.println("Counter: " + a + "      " + "Best amount of cash registers:  " + b);
 	}
-	private void testTvå(int a, int b) {
-		System.out.println("Missed customers: " + a+"            "+ "Amount of cash regs"+ b);
+
+	private void testTvå(int a) {
+		System.out.println("Missed customers: " + a);
 	}
-	
+
+	private void test1() {
+		System.out.println("HERRO");
+	}
 }

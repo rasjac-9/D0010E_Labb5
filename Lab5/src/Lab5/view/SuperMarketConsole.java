@@ -56,7 +56,7 @@ public class SuperMarketConsole extends View {
 		if (event.getName() == "Start") {
 			System.out.println(currentTime + "\t" + event.getName());
 		}
-		// Special print for Stop event
+//		 Special print for Stop event
 		else if (event.getName() == "Stop") {
 
 			// Average time cash register was empty in time
@@ -92,8 +92,9 @@ public class SuperMarketConsole extends View {
 			System.out.println("\n3)\tTotal tid " + superMarket.cashQueue.queueCounter + " kunder tvingats köa: "
 					+ queueTime + " te.\n\tGenomsnittlig kötid: " + avgQueueTime + " te.");
 
-			// Special variation when the store closes
-		} else if (event.getName() == "Stänger") {
+//			 Special variation when the store closes
+//		} 
+	else if (event.getName() == "Stänger") {
 			System.out.println(currentTime + "\t" + event.getName() + "       ---\t" + "Ö\t"
 					+ superMarket.getAvailableCashReg() + "\t" + regTime + "\t" + superMarket.getCustomers() + "\t"
 					+ superMarket.getShopped() + "\t" + superMarket.getLostCustomer() + "\t"
